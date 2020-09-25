@@ -1,5 +1,5 @@
 # MVP List
-This is a Star Wars themed clone of the popular site TaskRabbit. It will be built using React and Redux for the front-end and Express for the back-end.
+This is a Skyrim themed clone of the popular site Goodreads. It will be built using React and Redux for the front-end and Express and Sequelize for the back-end.
 
 ### User log-in (9/28/20, 1 day)
 * Users with accounts in the database are able to log-in to the site.
