@@ -36,3 +36,88 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 
 ### Bonus: Search across multiple models
 * Anyone accessing the application will be able to use a search bar to search through the availiable books.
+
+# Schema
+
+### Users
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| email | string | not null, unique |
+| hashedPassword | bytea | not null |
+| firstName | string | not null |
+| lastName | string | not null |
+| location | string | not null |
+
+* has_many ratings
+* has_many reviews
+* has_many haveRead
+* has_many currentlyReading
+* has_many wantToRead
+
+### Books
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| title | string | not null |
+| description | text | not null |
+| author | string | not null |
+| coverPhotoUrl | string | not null |
+
+* has_many ratings
+* has_many reviews
+* has_many haveRead
+* has_many currentlyReading
+* has_many wantToRead
+
+### Ratings
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| userId | integer | not null, foreign key |
+| bookId | integer | not null, foreign key |
+| score | float | not null |
+
+* belongs_to users
+* belongs_to books
+
+### Reviews
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| userId | integer | not null, foreign key |
+| bookId | integer | not null, foreign key |
+| content | text | not null |
+
+* belongs_to users
+* belongs_to books
+
+### HaveRead
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| userId | integer | not null, foreign key |
+| bookId | integer | not null, foreign key |
+
+* belongs_to users
+* belongs_to books
+
+### CurrentlyReading
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| userId | integer | not null, foreign key |
+| bookId | integer | not null, foreign key |
+
+* belongs_to users
+* belongs_to books
+
+### WantToRead
+| column name | data type | details |
+|---|---|---|
+| id | integer | not null, primary key |
+| userId | integer | not null, foreign key |
+| bookId | integer | not null, foreign key |
+
+* belongs_to users
+* belongs_to books
