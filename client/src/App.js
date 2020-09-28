@@ -9,6 +9,7 @@ function App() {
   return (
     <BrowserRouter>
         <nav>
+            <h1>Hello World!</h1>
             <ul>
                 <li><NavLink to="/" activeClass="active">Home</NavLink></li>
                 <li><NavLink to="/users" activeClass="active">Users</NavLink></li>
