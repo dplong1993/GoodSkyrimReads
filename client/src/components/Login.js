@@ -16,17 +16,24 @@ class Login extends Component {
   async handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    // const response = await fetch(`/api/session`, {
-    //   method: 'put',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state),
-    // });
+    const response = await fetch(`/api/session`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state),
+    });
+
+    const data = await response.json();
+    console.log(data);
 
     // if (response.ok) {
-    //   const { player } = await response.json();
-    //   this.props.updateUser(player.id);
-    //   this.setState({ currentUserId: player.id });
+    //   const { user } = await response.json();
+    //   console.log(user);
+    //   // this.props.updateUser(player.id);
+    //   // this.setState({ currentUserId: player.id });
     // }
+    // const response = await fetch(`/api/session/`);
+    // const data = await response.json();
+    // console.log(data);
   }
 
   updateValue = name => e => {
