@@ -102,6 +102,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 + entities: {
 
   - users: {
+
           1: {
               id: 1,
               email: demo@example.com,
