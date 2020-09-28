@@ -1,65 +1,46 @@
-import React, { Component } from 'react';
-// import {Redirect} from 'react-router-dom';
+import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import { login } from '../store/authentication';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: 'demo@example.com',
-      password: 'password',
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateEmail = this.updateValue('email');
-    this.updatePassword = this.updateValue('password');
-  }
+const Login = () =>  {
+  const [email, setEmail] = useState('demo@example.com');
+  const [password, setPassword] = useState('password');
+  const dispatch = useDispatch();
+  const currentUserId = useSelector(state => state.authentication.id);
 
-  async handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    const response = await fetch(`/api/session`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.state),
-    });
-
-    const data = await response.json();
-    console.log(data);
-
-    // if (response.ok) {
-    //   const { user } = await response.json();
-    //   console.log(user);
-    //   // this.props.updateUser(player.id);
-    //   // this.setState({ currentUserId: player.id });
-    // }
-    // const response = await fetch(`/api/session/`);
-    // const data = await response.json();
-    // console.log(data);
+    dispatch(login(email, password));
   }
 
-  updateValue = name => e => {
-    this.setState({ [name]: e.target.value });
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
   }
 
-  render() {
-    // if (this.state.currentUserId) {
-    //   return <Redirect to="/" />;
-    // }
-    return (
-      <main>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
-                placeholder="Email"
-                value={this.state.email}
-                onChange={this.updateEmail} />
-          <input type="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.updatePassword} />
-          <button type="submit">Login</button>
-        </form>
-      </main>
-    );
+  const updatePassword = (e) => {
+    setEmail(e.target.value);
   }
+
+  if (currentUserId) {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <main>
+      <form onSubmit={handleSubmit}>
+        <input type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail} />
+        <input type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword} />
+        <button type="submit">Login</button>
+      </form>
+    </main>
+  );
 }
 
 export default Login;
