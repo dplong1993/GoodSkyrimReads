@@ -7,9 +7,9 @@
   - End-time: 9:00 am
 * Add a log-in component to render a log-in form
   - Start-time: 9:00 am
-  - End-time:
+  - End-time: 9:15 am
 * Set up the backend routes for log-in
-  - Start-time:
+  - Start-time: 9:15 am
   - End-time:
 * Set up Redux for log-in
   - Set up Actions for log-in
