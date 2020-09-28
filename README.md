@@ -100,6 +100,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 # Sample State
 {
 + entities: {
+
   - users: {
           1: {
               id: 1,
