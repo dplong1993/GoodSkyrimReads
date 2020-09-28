@@ -4,9 +4,9 @@
 
 * Watch walkthrough videos
   - Start-time: 8:34 am
-  - End-time:
+  - End-time: 9:00 am
 * Add a log-in component to render a log-in form
-  - Start-time:
+  - Start-time: 9:00 am
   - End-time:
 * Set up the backend routes for log-in
   - Start-time:
