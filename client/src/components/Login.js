@@ -19,7 +19,7 @@ const Login = () =>  {
   }
 
   const updatePassword = (e) => {
-    setEmail(e.target.value);
+    setPassword(e.target.value);
   }
 
   if (currentUserId) {
