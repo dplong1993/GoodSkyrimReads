@@ -2,6 +2,9 @@
 
 ## 9/28/2020
 
+* Watch walkthrough videos
+  - Start-time: 8:34 am
+  - End-time:
 * Add a log-in component to render a log-in form
   - Start-time:
   - End-time:
