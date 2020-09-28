@@ -140,6 +140,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               wantToRead: {3}
           }
       },
+
   - books: {
 
           1: {
@@ -179,6 +180,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               wantToRead: {2}
           },
       },
+
   - ratings: {
 
           1: {
@@ -200,6 +202,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               score: 5.0,
           },
       },
+
   - reviews: {
 
           1: {
@@ -221,6 +224,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               conent: I like this,
           },
       },
+
   - haveRead: {
 
           1: {
@@ -239,6 +243,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               bookId: 3,
           },
       },
+
   - currentlyReading: {
 
           1: {
@@ -257,6 +262,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
               bookId: 2,
           },
       },
+
   - wantToRead: {
 
           1: {
@@ -276,6 +282,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   }
+
 +auth: {
 
         id: 1,
