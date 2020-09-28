@@ -141,6 +141,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           }
       },
   - books: {
+
           1: {
               id: 1,
               title: 16 Accords of Madness, v. VI,
@@ -179,6 +180,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   - ratings: {
+
           1: {
               id: 1,
               userId: 1,
@@ -199,6 +201,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   - reviews: {
+
           1: {
               id: 1,
               userId: 1,
@@ -219,6 +222,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   - haveRead: {
+
           1: {
               id: 1,
               userId: 1,
@@ -236,6 +240,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   - currentlyReading: {
+
           1: {
               id: 1,
               userId: 1,
@@ -253,6 +258,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
           },
       },
   - wantToRead: {
+
           1: {
               id: 1,
               userId: 1,
@@ -271,6 +277,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
       },
   }
 +auth: {
+
         id: 1,
         email: demo@example.com,
         firstName: Demo,
