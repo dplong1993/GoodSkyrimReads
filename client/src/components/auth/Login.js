@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { login } from '../store/authentication';
+import { login } from '../../store/authentication';
 // import '../css/login.css';
 
 // DEMO BUTTON AND LOG IN BUTTON NOT WORKING CORRECTLY

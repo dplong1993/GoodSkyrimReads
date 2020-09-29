@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logout } from '../store/authentication';
+import { logout } from '../../store/authentication';
 
 const AuthNavButtons = () => {
   const dispatch = useDispatch();
