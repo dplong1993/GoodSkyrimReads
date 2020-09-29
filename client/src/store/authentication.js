@@ -58,6 +58,24 @@ export const login = (email, password) => {
   }
 }
 
+export const signup = (email, password, name) => {
+  return async dispatch => {
+    const response = await fetch(`/api/users`, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({email, password, name}),
+    });
+
+    if (response.ok) {
+      const { user } = await response.json();
+      dispatch(setUser(user));
+    } else {
+      const error = await response.json();
+      window.alert(error.message);
+    }
+  }
+}
+
 // export const logout = () => {
 //   return async dispatch => {
 //     const response = await fetch(`/api/session`, {
