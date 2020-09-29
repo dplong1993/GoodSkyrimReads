@@ -59,5 +59,15 @@
   - Start-time: 12:55 pm
   - End-time: 1:30 pm
 * Push the completed component and merge back to master. Then deploy to Heroku.
-  - Start-time:
-  - End-time:
+  - Start-time: 1:30 pm
+  - End-time: 1:37 pm
+
+* Create a logout link on the nav-bar component that is only visible if there is an authenticated user in the state.
+  - Start-time: 1:37 pm
+  - End-time: 1:40 pm
+* Create the logic that makes the logout link delete the token from cookies and deletes the authenticated user from state.
+  - Start-time: 1:40 pm
+  - End-time: 1:55 pm
+* Make the logout button only show up if there is an user logged in
+  - Start-time: 1:55 pm
+  - End-time: 2:00 pm

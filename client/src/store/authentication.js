@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 
 const SET_USER = 'goodskyrimreads/authentication/SET_USER';
 const SET_CURRENT_USER_ID = 'goodskyrimreads/authentication/SET_CURRENT_USER_ID';
-// const REMOVE_USER = 'pokedex/authentication/REMOVE_USER'
+const REMOVE_USER = 'goodskyrimreads/authentication/REMOVE_USER'
 
 export const setUser = user => {
   return {
@@ -18,11 +18,11 @@ export const setCurrentUserId = id => {
   };
 };
 
-// export const removeUser = () => {
-//   return {
-//     type: REMOVE_USER
-//   }
-// }
+export const removeUser = () => {
+  return {
+    type: REMOVE_USER
+  }
+}
 
 function loadUser() {
   const authToken = Cookies.get("token");
@@ -76,16 +76,16 @@ export const signup = (email, password, name) => {
   }
 }
 
-// export const logout = () => {
-//   return async dispatch => {
-//     const response = await fetch(`/api/session`, {
-//       method: 'delete',
-//     });
-//     if (response.ok) {
-//       dispatch(removeUser());
-//     }
-//   }
-// }
+export const logout = () => {
+  return async dispatch => {
+    const response = await fetch(`/api/session`, {
+      method: 'delete',
+    });
+    if (response.ok) {
+      dispatch(removeUser());
+    }
+  }
+}
 
 export default function reducer(state = loadUser(), action){
   switch(action.type){
@@ -93,6 +93,8 @@ export default function reducer(state = loadUser(), action){
       return action.user;
     case SET_CURRENT_USER_ID:
       return action.id;
+    case REMOVE_USER:
+      return {};
     default:
       return state;
   }
