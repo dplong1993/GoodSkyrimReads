@@ -46,11 +46,14 @@
   - Start-time: 9:35 am
   - End-time: 9:55 am
 
-* Add a sign-up component to render a signup form
+* Add a sign-up component to the React flow
   - Start-time: 10:00 am
-  - End-time:
+  - End-time: 10:15 am
+* Build the signup component to render a form
+  - Start-time: 10:15 am
+  - End-time: 10:30 am
 * Set up the backend routes for sign-up
-  - Start-time:
+  - Start-time: 10:30 am
   - End-time:
 * Set up Redux for sign-up
   - Set up Actions for sign-up

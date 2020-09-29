@@ -33,13 +33,13 @@ const Login = () =>  {
         <h1>Sign in to GoodSkyrimReads</h1>
         <form onSubmit={handleSubmit}>
           <fieldset>
-            <div class="input-fields">
+            <div className="input-fields">
               <label>Email address</label>
               <input type="email"
                     placeholder="you@yours.com"
                     onChange={updateEmail} />
             </div>
-            <div class="input-fields">
+            <div className="input-fields">
               <label>Password</label>
               <input type="password"
                     onChange={updatePassword} />
