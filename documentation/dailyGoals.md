@@ -42,3 +42,6 @@
   - Use css to style the log-in page
     - Start-time: 6:45 am
     - End-time: 9:35 am
+* Push the completed component and merge back to master. Then deploy to Heroku.
+  - Start-time: 9:35 am
+  - End-time: 9:55 am
