@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../store/authentication';
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  const currentUserId = useSelector(state => state.authentication.id);
 
   const handleClick = () => {
     dispatch(logout());
@@ -17,7 +18,10 @@ const NavBar = () => {
         <li><NavLink to="/users" activeClass="active">Users</NavLink></li>
         <li><NavLink to="/login" activeClass="active">Login</NavLink></li>
         <li><NavLink to="/signup" activeClass="active">Signup</NavLink></li>
-        <button onClick={handleClick}>Logout</button>
+        {currentUserId ?
+        <button onClick={handleClick}>Logout</button>:
+        null
+        }
     </ul>
   </nav>
 )};

@@ -70,4 +70,4 @@
   - End-time: 1:55 pm
 * Make the logout button only show up if there is an user logged in
   - Start-time: 1:55 pm
-  - End-time:
+  - End-time: 2:00 pm
