@@ -56,8 +56,8 @@
   - Start-time: 10:30 am
   - End-time: 12:55 pm
 * Style sign-up component
-  - Start-time:
-  - End-time:
+  - Start-time: 12:55 pm
+  - End-time: 1:30 pm
 * Push the completed component and merge back to master. Then deploy to Heroku.
   - Start-time:
   - End-time:
