@@ -1,31 +1,38 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 import UserList from './components/UsersList';
-
+import Login from './components/Login';
+import NavBar from './components/NavBar';
 
 function App() {
+    //Will be either undefined or a number depending on if there is a token in the cookies
+    const currentUserId = useSelector(state=> state.authentication.id);
+    let location = useLocation();
+    console.log(location);
 
-  return (
-    <BrowserRouter>
-        <nav>
-            <h1>Hello World!</h1>
-            <ul>
-                <li><NavLink to="/" activeClass="active">Home</NavLink></li>
-                <li><NavLink to="/users" activeClass="active">Users</NavLink></li>
-            </ul>
-        </nav>
-        <Switch>
-            <Route path="/users">
-                <UserList />
-            </Route>
+    return (
+        <>
+            {location.pathname !== '/login' ?
+            <NavBar />
+            : null}
+            <Switch>
+                <Route path="/login">
+                    <Login />
+                </Route>
 
-            <Route path="/">
-                <h1>My Home Page</h1>
-            </Route>
-        </Switch>
-    </BrowserRouter>
-  );
+
+                <Route path="/users">
+                    <UserList />
+                </Route>
+
+                <Route path="/">
+                    <h1>My Home Page</h1>
+                </Route>
+            </Switch>
+        </>
+    );
 }
 
 export default App;

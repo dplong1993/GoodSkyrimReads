@@ -13,25 +13,32 @@ module.exports = {
         type: Sequelize.STRING(255),
         unique: true,
       },
-      username: {
-        allowNull: false,
-        type: Sequelize.STRING(255),
-        unique: true,
-      },
       hashedPassword: {
         allowNull: false,
         type: Sequelize.STRING(60).BINARY,
+      },
+      firstName: {
+        allowNull: false,
+        type: Sequelize.STRING(50),
+      },
+      lastName: {
+        allowNull: false,
+        type: Sequelize.STRING(50),
+      },
+      location: {
+        allowNull: false,
+        type: Sequelize.STRING(50),
       },
       tokenId: {
         type: Sequelize.STRING(36),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       }
     });
   },
