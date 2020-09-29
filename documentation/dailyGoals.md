@@ -85,3 +85,11 @@
 * Create a button on the log-in form that will allow anyone viewing the site to log-in as a demo user.
   - Start-time: 2:25 pm
   - End-time: 2:32 pm
+
+### Nav bar feature
+* Create a nav-bar with buttons to access different parts of the site.
+  - Start-time: 2:35 pm
+  - End-time:  pm
+* Style the nav bar component
+  - Start-time: pm
+  - End-time:  pm
