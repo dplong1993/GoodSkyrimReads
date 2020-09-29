@@ -37,6 +37,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 | firstName | string | not null |
 | lastName | string | not null |
 | location | string | not null |
+| tokenId | string | |
 * has_many ratings
 * has_many reviews
 * has_many haveRead
