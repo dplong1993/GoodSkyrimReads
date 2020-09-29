@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { login } from '../store/authentication';
+import { signup } from '../store/authentication';
+// import { signup } from '../store/users';
 
 const Signup = () => {
   const [email, setEmail] = useState('demo@example.com');
@@ -12,7 +13,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(signup(email, password, name));
   }
 
   const updateEmail = (e) => {

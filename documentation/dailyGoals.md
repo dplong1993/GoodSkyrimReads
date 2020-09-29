@@ -52,22 +52,9 @@
 * Build the signup component to render a form
   - Start-time: 10:15 am
   - End-time: 10:30 am
-* Set up the backend routes for sign-up
+* Set up the Redux and code for backend route for sign-up
   - Start-time: 10:30 am
-  - End-time:
-* Set up Redux for sign-up
-  - Set up Actions for sign-up
-    - Start-time:
-    - End-time:
-  - Set up reducer for sign-up
-    - Start-time:
-    - End-time:
-  - Update component to use action and reducer to store user info after sign-up
-    - Start-time:
-    - End-time:
-  - Write code to sign-up user.
-    - Start-time:
-    - End-time:
+  - End-time: 12:55 pm
 * Style sign-up component
   - Start-time:
   - End-time:
