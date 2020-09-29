@@ -87,8 +87,11 @@
   - End-time: 2:32 pm
 
 ### Nav bar feature
+* Created new git branch and set up tasks in dailyGoals.
+  - Start-time: 2:32 pm
+  - End-time: 2:39 pm
 * Create a nav-bar with buttons to access different parts of the site.
-  - Start-time: 2:35 pm
+  - Start-time: 3:00 pm
   - End-time:  pm
 * Style the nav bar component
   - Start-time: pm
