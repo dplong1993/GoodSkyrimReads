@@ -1,27 +1,71 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logout } from '../store/authentication';
+import AuthNavButtons from './AuthNavButtons';
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const currentUserId = useSelector(state => state.authentication.id);
-
-  const handleClick = () => {
-    dispatch(logout());
-  }
-
   return (
   <nav>
-    <ul>
-        <li><NavLink to="/" activeClass="active">Home</NavLink></li>
-        {currentUserId ?
-        <button onClick={handleClick}>Logout</button>:
-        <>
-          <li><NavLink to="/login" activeClass="active">Login</NavLink></li>
-          <li><NavLink to="/signup" activeClass="active">Signup</NavLink></li>
-        </>
-        }
+    <ul className="nav-bar">
+      <div className="nav-bar-content">
+        <li>
+          <div className="logo">
+            GoodSkyrimReads
+          </div>
+        </li>
+        <li>
+          <button>
+            <NavLink
+              to="/"
+              style={{
+                color: 'black',
+                textDecoration: 'none'
+              }}
+              activeClass="active">
+              Home
+            </NavLink>
+          </button>
+        </li>
+        <li>
+          <button>
+            <NavLink
+              to="/mybooks"
+              style={{
+                color: 'black',
+                textDecoration: 'none'
+              }}
+              activeClass="active">
+              My Books
+            </NavLink>
+          </button>
+        </li>
+        <li>
+          <button>
+            <NavLink
+              to="/books"
+              style={{
+                color: 'black',
+                textDecoration: 'none'
+              }}
+              activeClass="active">
+              Browse
+            </NavLink>
+          </button>
+        </li>
+        <li>
+          <button>
+            <NavLink
+              to="/profile"
+              style={{
+                color: 'black',
+                textDecoration: 'none'
+              }}
+              activeClass="active">
+              Profile
+            </NavLink>
+          </button>
+        </li>
+        <AuthNavButtons />
+      </div>
     </ul>
   </nav>
 )};

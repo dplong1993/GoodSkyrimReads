@@ -4,6 +4,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import { login } from '../store/authentication';
 // import '../css/login.css';
 
+// DEMO BUTTON AND LOG IN BUTTON NOT WORKING CORRECTLY
+// CLICKING SIGNIN BUTTON WITH NO INFORMATION IN THE INPUT
+// FIELDS WILL LOG IN THE DEMO USER
+
 const Login = () =>  {
   const [email, setEmail] = useState('demo@example.com');
   const [password, setPassword] = useState('password');
