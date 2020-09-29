@@ -71,3 +71,7 @@
 * Make the logout button only show up if there is an user logged in
   - Start-time: 1:55 pm
   - End-time: 2:00 pm
+
+* Refactor the login and signup links on the nav-bar to work opposite of the logout button.
+  - Start-time: 2:15 pm
+  - End-time:  pm
