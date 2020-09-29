@@ -33,12 +33,12 @@ const Signup = () => {
   }
 
   return (
-    <div className="container">
-      <main className="main-container">
+    <div className="loginandsignup">
+      <main className="loginandsignup-main">
         <h1>Sign up for GSR</h1>
         <h2>Sign up to see what your friends are reading, get book recommendations,
 and join the world’s largest community of readers.</h2>
-        <h2>Sign Up with Email</h2>
+        <h2 className="signupmessage">Sign Up with Email</h2>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <div className="input-fields">
@@ -59,10 +59,14 @@ and join the world’s largest community of readers.</h2>
                     onChange={updatePassword} />
             </div>
             <div className="spacer"></div>
-            <div className="submit">
+            <div className="signup-submit">
               <button type="submit">Sign up</button>
-              <span>Already a member?</span>
-              <a href="/login">Sign in</a>
+              <div className="signup-login">
+                <span>
+                  <span>Already a member?</span>
+                  <a href="/login">Sign in</a>
+                </span>
+              </div>
             </div>
           </fieldset>
         </form>

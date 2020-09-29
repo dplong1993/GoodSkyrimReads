@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { login } from '../store/authentication';
-import '../css/login.css';
+// import '../css/login.css';
 
 const Login = () =>  {
   const [email, setEmail] = useState('demo@example.com');
@@ -28,8 +28,8 @@ const Login = () =>  {
   }
 
   return (
-    <div className="container">
-      <main className="main-container">
+    <div className="loginandsignup">
+      <main className="loginandsignup-main">
         <h1>Sign in to GoodSkyrimReads</h1>
         <form onSubmit={handleSubmit}>
           <fieldset>
@@ -44,10 +44,10 @@ const Login = () =>  {
               <input type="password"
                     onChange={updatePassword} />
             </div>
-            <div className="spacer"></div>
-            <div className="submit">
+            <div className="login-spacer"></div>
+            <div className="login-submit">
               <button type="submit">Sign in</button>
-              <div className="signup">
+              <div className="login-signup">
                 <span>
                   <span>Not a member?</span>
                   <a href="/signup">Sign up</a>
