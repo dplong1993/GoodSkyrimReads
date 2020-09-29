@@ -42,12 +42,12 @@ router.put('/', asyncHandler(async (req, res, next) => {
 
 }));
 
-// router.delete('/', [authenticated], asyncHandler(async (req, res) => {
-//   req.user.tokenId = null;
-//   await req.user.save();
-//   res.clearCookie('token');
-//   res.json({ message: 'success' });
-// }));
+router.delete('/', [authenticated], asyncHandler(async (req, res) => {
+  req.user.tokenId = null;
+  await req.user.save();
+  res.clearCookie('token');
+  res.json({ message: 'success' });
+}));
 
 router.get('/', (req, res) => {
   console.log('IN Session/');
