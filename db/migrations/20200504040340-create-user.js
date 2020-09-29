@@ -17,17 +17,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(60).BINARY,
       },
-      firstName: {
+      name: {
         allowNull: false,
-        type: Sequelize.STRING(50),
-      },
-      lastName: {
-        allowNull: false,
-        type: Sequelize.STRING(50),
-      },
-      location: {
-        allowNull: false,
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
       },
       tokenId: {
         type: Sequelize.STRING(36),

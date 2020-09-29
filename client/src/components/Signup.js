@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { login } from '../store/authentication';
-// import '../css/login.css';
+import { signup } from '../store/authentication';
+// import { signup } from '../store/users';
 
-const Login = () =>  {
+const Signup = () => {
   const [email, setEmail] = useState('demo@example.com');
   const [password, setPassword] = useState('password');
+  const [name, setName] = useState('');
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.authentication.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(signup(email, password, name));
   }
 
   const updateEmail = (e) => {
@@ -23,6 +24,10 @@ const Login = () =>  {
     setPassword(e.target.value);
   }
 
+  const updateName = (e) => {
+    setName(e.target.value);
+  }
+
   if (currentUserId) {
     return <Redirect to="/" />;
   }
@@ -30,9 +35,18 @@ const Login = () =>  {
   return (
     <div className="loginandsignup">
       <main className="loginandsignup-main">
-        <h1>Sign in to GoodSkyrimReads</h1>
+        <h1>Sign up for GSR</h1>
+        <h2>Sign up to see what your friends are reading, get book recommendations,
+and join the world’s largest community of readers.</h2>
+        <h2 className="signupmessage">Sign Up with Email</h2>
         <form onSubmit={handleSubmit}>
           <fieldset>
+            <div className="input-fields">
+              <label>Name</label>
+              <input type="text"
+                    placeholder="Name"
+                    onChange={updateName} />
+            </div>
             <div className="input-fields">
               <label>Email address</label>
               <input type="email"
@@ -44,13 +58,13 @@ const Login = () =>  {
               <input type="password"
                     onChange={updatePassword} />
             </div>
-            <div className="login-spacer"></div>
-            <div className="login-submit">
-              <button type="submit">Sign in</button>
-              <div className="login-signup">
+            <div className="spacer"></div>
+            <div className="signup-submit">
+              <button type="submit">Sign up</button>
+              <div className="signup-login">
                 <span>
-                  <span>Not a member?</span>
-                  <a href="/signup">Sign up</a>
+                  <span>Already a member?</span>
+                  <a href="/login">Sign in</a>
                 </span>
               </div>
             </div>
@@ -58,7 +72,7 @@ const Login = () =>  {
         </form>
       </main>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Signup;

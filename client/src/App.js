@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import UserList from './components/UsersList';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
+import Signup from './components/Signup';
 
 function App() {
     //Will be either undefined or a number depending on if there is a token in the cookies
@@ -14,7 +15,7 @@ function App() {
 
     return (
         <>
-            {location.pathname !== '/login' ?
+            {location.pathname !== '/login' && location.pathname !== '/signup' ?
             <NavBar />
             : null}
             <Switch>
@@ -22,6 +23,9 @@ function App() {
                     <Login />
                 </Route>
 
+                <Route path="/signup">
+                    <Signup />
+                </Route>
 
                 <Route path="/users">
                     <UserList />

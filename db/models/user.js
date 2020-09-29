@@ -19,25 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60],
       },
     },
-    firstName: {
+    name: {
       allowNull: false,
       type: DataTypes.STRING,
       validates: {
-        len: [1, 50],
-      },
-    },
-    lastName: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      validates: {
-        len: [1, 50],
-      },
-    },
-    location: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      validates: {
-        len: [5, 50],
+        len: [1, 100],
       },
     },
     tokenId: {
@@ -63,10 +49,8 @@ module.exports = (sequelize, DataTypes) => {
     return {
       createdAt: this.createdAt,
       email: this.email,
-      firstName: this.firstName,
       id: this.id,
-      lastName: this.lastName,
-      location: this.location,
+      name: this.name,
       updatedAt: this.updatedAt,
     };
   }

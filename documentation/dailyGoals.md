@@ -22,7 +22,7 @@
   - Set up reducer for log-in
     - Start-time: 10:45 am
     - End-time: 11:15 am
-  - Update component to use action and reducer to store log-in info in state
+  - Update component to use action and reducer to store user info in state after log-in
     - Start-time: 1:10 pm
     - End-time: 1:33 pm
   - Write code to log-in user.
@@ -42,3 +42,22 @@
   - Use css to style the log-in page
     - Start-time: 6:45 am
     - End-time: 9:35 am
+* Push the completed component and merge back to master. Then deploy to Heroku.
+  - Start-time: 9:35 am
+  - End-time: 9:55 am
+
+* Add a sign-up component to the React flow
+  - Start-time: 10:00 am
+  - End-time: 10:15 am
+* Build the signup component to render a form
+  - Start-time: 10:15 am
+  - End-time: 10:30 am
+* Set up the Redux and code for backend route for sign-up
+  - Start-time: 10:30 am
+  - End-time: 12:55 pm
+* Style sign-up component
+  - Start-time: 12:55 pm
+  - End-time: 1:30 pm
+* Push the completed component and merge back to master. Then deploy to Heroku.
+  - Start-time:
+  - End-time:
