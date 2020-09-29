@@ -137,6 +137,11 @@ button {
   font-weight: bold;
 }
 
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .login-signup, .signup-login {
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }

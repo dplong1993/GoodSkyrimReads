@@ -15,6 +15,12 @@ const Login = () =>  {
     dispatch(login(email, password));
   }
 
+  const handleClick = () => {
+    const demoEmail = 'demo@example.com';
+    const demoPassword = 'password';
+    dispatch(login(demoEmail, demoPassword));
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   }
@@ -46,7 +52,10 @@ const Login = () =>  {
             </div>
             <div className="login-spacer"></div>
             <div className="login-submit">
-              <button type="submit">Sign in</button>
+              <div className="login-buttons">
+                <button type="submit">Sign in</button>
+                <button className="demouser" onClick={handleClick}>Demo User</button>
+              </div>
               <div className="login-signup">
                 <span>
                   <span>Not a member?</span>

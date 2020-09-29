@@ -84,4 +84,4 @@
 ### Demo User feature
 * Create a button on the log-in form that will allow anyone viewing the site to log-in as a demo user.
   - Start-time: 2:25 pm
-  - End-time:
+  - End-time: 2:32 pm
