@@ -133,9 +133,12 @@
   - Start-time: 3:00 pm
   - End-time: 3:30 pm
 * Set up main component to display book information for 5-10 books
+  * Set up database stuff for books
+    - Start-time: 3:30 pm
+    - End-time: 4:05 pm
   * Set up backend for books
-    - Start-time: 3:00 pm
-    - End-time: 3:30 pm
+    - Start-time: 4:05 pm
+    - End-time: pm
   * Set up redux related components for books
   * Link the main component to the book state
   * Style main component
