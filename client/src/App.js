@@ -3,7 +3,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import Login from './components/auth/Login';
 import NavBar from './components/nav/NavBar';
 import Signup from './components/auth/Signup';
-import Home from './components/pages/Home';
+import Home from './components/pages/homePage/Home';
 import Profile from './components/pages/Profile';
 import Books from './components/pages/Books';
 import MyBooks from './components/pages/MyBooks';
