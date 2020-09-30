@@ -13,7 +13,7 @@ export const setUser = user => {
 
 export const setCurrentUserId = id => {
   return {
-    type: SET_USER,
+    type: SET_CURRENT_USER_ID,
     id
   };
 };
@@ -86,6 +86,8 @@ export const logout = () => {
     }
   }
 }
+
+//Check what is using SET_CURRENT_USER_ID
 
 export default function reducer(state = loadUser(), action){
   switch(action.type){

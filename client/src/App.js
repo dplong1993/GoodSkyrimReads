@@ -1,17 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
-import {useSelector} from 'react-redux';
-
-import UserList from './components/UsersList';
-import Login from './components/Login';
-import NavBar from './components/NavBar';
-import Signup from './components/Signup';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import Login from './components/auth/Login';
+import NavBar from './components/nav/NavBar';
+import Signup from './components/auth/Signup';
 
 function App() {
     //Will be either undefined or a number depending on if there is a token in the cookies
-    const currentUserId = useSelector(state=> state.authentication.id);
     let location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     return (
         <>
@@ -19,21 +15,13 @@ function App() {
             <NavBar />
             : null}
             <Switch>
-                <Route path="/login">
-                    <Login />
-                </Route>
+                <Route path="/login" component={Login} />
 
                 <Route path="/signup">
                     <Signup />
                 </Route>
 
-                <Route path="/users">
-                    <UserList />
-                </Route>
-
-                <Route path="/">
-                    <h1>My Home Page</h1>
-                </Route>
+                <Route path="/" render={() => <h1>Home Page</h1> } />
             </Switch>
         </>
     );
