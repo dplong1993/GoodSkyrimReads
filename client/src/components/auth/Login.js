@@ -2,11 +2,122 @@ import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { login } from '../../store/authentication';
-// import '../css/login.css';
+import styled from "styled-components";
 
-// DEMO BUTTON AND LOG IN BUTTON NOT WORKING CORRECTLY
-// CLICKING SIGNIN BUTTON WITH NO INFORMATION IN THE INPUT
-// FIELDS WILL LOG IN THE DEMO USER
+const LoginFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 600px;
+  padding: 28px 10px 34px 10px;
+  border: 1px solid #d0d0c8;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px #d0d0c8;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+
+  h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #382110;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: "Merriweather", Georgia, 'Times New Roman', serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+    line-height: 24px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    color: #030303
+  }
+
+  fieldset {
+    border: none;
+    width: 300px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+  }
+
+  .input-fields {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #030303;
+  }
+
+  label {
+    box-sizing: border-box;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  input {
+    box-sizing: border-box;
+    font-size: 15px;
+    padding: 10px 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-weight: bold;
+    width: 300px;
+    background: #FFFFFF;
+  }
+
+  .login-spacer {
+    height: 10px;
+  }
+
+  .login-submit {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 3px;
+    border: 1px solid #d6d0c4;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #f4f1ea;
+    line-height: 1;
+    font-weight: bold;
+  }
+
+  .login-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .login-signup {
+    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 24px;
+    display: block;
+  }
+
+  a {
+    margin-left: 10px;
+    font-weight: normal;
+    color: #00635d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
 
 const Login = () =>  {
   const [email, setEmail] = useState('');
@@ -48,7 +159,7 @@ const Login = () =>  {
 
   return (
     <div className="loginandsignup">
-      <main className="loginandsignup-main">
+      <LoginFormWrapper>
         <h1>Sign in to GoodSkyrimReads</h1>
         <form onSubmit={handleLogIn}>
           <fieldset>
@@ -80,7 +191,7 @@ const Login = () =>  {
             </div>
           </fieldset>
         </form>
-      </main>
+      </LoginFormWrapper>
     </div>
   );
 }
