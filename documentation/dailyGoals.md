@@ -2,6 +2,7 @@
 
 ## 9/28/2020
 
+### Login feature
 * Watch walkthrough videos
   - Start-time: 8:34 am
   - End-time: 9:00 am
@@ -38,6 +39,7 @@
 
 ## 9/29/20
 
+### Login feature
 * Style log-in component
   - Use css to style the log-in page
     - Start-time: 6:45 am
@@ -46,6 +48,7 @@
   - Start-time: 9:35 am
   - End-time: 9:55 am
 
+### Signup feature
 * Add a sign-up component to the React flow
   - Start-time: 10:00 am
   - End-time: 10:15 am
@@ -62,6 +65,7 @@
   - Start-time: 1:30 pm
   - End-time: 1:37 pm
 
+### Logout feature
 * Create a logout link on the nav-bar component that is only visible if there is an authenticated user in the state.
   - Start-time: 1:37 pm
   - End-time: 1:40 pm
@@ -71,3 +75,55 @@
 * Make the logout button only show up if there is an user logged in
   - Start-time: 1:55 pm
   - End-time: 2:00 pm
+
+### Nav bar updates
+* Refactor the login and signup links on the nav-bar to work opposite of the logout button.
+  - Start-time: 2:15 pm
+  - End-time: 2:20 pm
+
+### Demo User feature
+* Create a button on the log-in form that will allow anyone viewing the site to log-in as a demo user.
+  - Start-time: 2:25 pm
+  - End-time: 2:32 pm
+
+### Nav bar feature
+* Created new git branch and set up tasks in dailyGoals.
+  - Start-time: 2:32 pm
+  - End-time: 2:39 pm
+* Create a nav-bar with buttons to access different parts of the site.
+  - Start-time: 3:00 pm
+  - End-time:  4:30 pm
+
+## 09/30/20
+
+* Reviewed pokedex solution to compare it how I was doing auth. Looks the same so I think I am in a good position.
+  - Start-time: 7:00 am
+  - End-time: 7:40 am
+
+### Nav bar feature
+* Create a nav-bar with buttons to access different parts of the site.
+  - Start-time: 7:40 am
+  - End-time: 8:10 am
+
+* Code review and morning meetings
+  - Start-time: 8:15 am
+  - End-time: 9:55 am
+
+* Refactoring code to make it dryer
+  * Refactor buttons to one component that takes in props
+    - Start-time: 9:55 am
+    - End-time: 10:30 am
+  * Refactor components into styled components
+    * Refactor login and signup components
+      - Start-time: 10:30 am
+      - End-time: 11:00 am
+    * Refactor login and signup components css and classes
+      - Start-time: 11:00 am
+      - End-time: 11:15 am
+    * Refactor login and signup components css and classes
+      - Start-time: 12:30 pm
+      - End-time: 1:30 pm
+
+* Style the nav bar component
+  - Start-time: 1:30 pm
+  - End-time: 2:30 pm
