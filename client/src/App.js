@@ -16,12 +16,9 @@ function App() {
             : null}
             <Switch>
                 <Route path="/login" component={Login} />
-
-                <Route path="/signup">
-                    <Signup />
-                </Route>
-
+                <Route path="/signup" component={Signup} />
                 <Route path="/" render={() => <h1>Home Page</h1> } />
+                {/* <Route path="/" render={() => <h1>Home Page</h1> } /> */}
             </Switch>
         </>
     );
