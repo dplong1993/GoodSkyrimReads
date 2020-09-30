@@ -92,7 +92,19 @@
   - End-time: 2:39 pm
 * Create a nav-bar with buttons to access different parts of the site.
   - Start-time: 3:00 pm
-  - End-time:  pm
+  - End-time:  4:30 pm
+
+## 09/30/20
+
+* Reviewed pokedex solution to compare it how I was doing auth. Looks the same so I think I am in a good position.
+  - Start-time: 7:00 am
+  - End-time: 7:40 am
+
+### Nav bar feature
+* Create a nav-bar with buttons to access different parts of the site.
+  - Start-time: 7:40 am
+  - End-time:
+
 * Style the nav bar component
-  - Start-time: pm
-  - End-time:  pm
+  - Start-time:
+  - End-time:

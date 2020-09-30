@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthNavButtons from './AuthNavButtons';
+import Logo from './buttons/Logo';
 import NavBarButtons from './NavBarButtons';
 
 const NavBar = () => {
@@ -8,11 +9,7 @@ const NavBar = () => {
   <nav>
     <ul className="nav-bar">
       <div className="nav-bar-content">
-        <li>
-          <div className="logo">
-            GoodSkyrimReads
-          </div>
-        </li>
+        <Logo />
         <NavBarButtons />
         <AuthNavButtons />
       </div>

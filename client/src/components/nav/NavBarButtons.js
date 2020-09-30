@@ -2,7 +2,6 @@ import React from 'react';
 import Browse from './buttons/Browse';
 import Home from './buttons/Home';
 import MyBooks from './buttons/MyBooks';
-import Profile from './buttons/Profile';
 
 const NavBarButtons = () => {
   return (
@@ -10,7 +9,6 @@ const NavBarButtons = () => {
       <li><Home /></li>
       <li><MyBooks /></li>
       <li><Browse /></li>
-      <li><Profile /></li>
     </div>
   )
 }
