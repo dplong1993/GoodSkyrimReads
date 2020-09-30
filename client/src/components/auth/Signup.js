@@ -2,30 +2,34 @@ import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { signup } from '../../store/authentication';
-// import { signup } from '../store/users';
 
 const Signup = () => {
-  const [email, setEmail] = useState('demo@example.com');
-  const [password, setPassword] = useState('password');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.authentication.id);
 
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     dispatch(signup(email, password, name));
   }
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  }
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  }
-
-  const updateName = (e) => {
-    setName(e.target.value);
+  const handleChange = (e) => {
+    const {id, value} = e.target;
+    switch(id){
+      case "email":
+        setEmail(value);
+        return;
+      case "password":
+        setPassword(value);
+        return;
+      case "name":
+        setName(value);
+        return;
+      default:
+        return;
+    }
   }
 
   if (currentUserId) {
@@ -39,24 +43,30 @@ const Signup = () => {
         <h2>Sign up to see what your friends are reading, get book recommendations,
 and join the world’s largest community of readers.</h2>
         <h2 className="signupmessage">Sign Up with Email</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSignUp}>
           <fieldset>
             <div className="input-fields">
-              <label>Name</label>
-              <input type="text"
-                    placeholder="Name"
-                    onChange={updateName} />
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                onChange={handleChange} />
             </div>
             <div className="input-fields">
-              <label>Email address</label>
-              <input type="email"
-                    placeholder="you@yours.com"
-                    onChange={updateEmail} />
+              <label htmlFor="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="you@yours.com"
+                onChange={handleChange} />
             </div>
             <div className="input-fields">
-              <label>Password</label>
-              <input type="password"
-                    onChange={updatePassword} />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                onChange={handleChange} />
             </div>
             <div className="spacer"></div>
             <div className="signup-submit">

@@ -44,7 +44,7 @@ const Login = () =>  {
     return <Redirect to="/" />;
   }
 
-  //Change labels to use htmlfor and change name to id
+  // REFACTOR INTO A STYLED COMPONENT
 
   return (
     <div className="loginandsignup">
