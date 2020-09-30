@@ -1,14 +1,24 @@
 import React from 'react';
-import Browse from './buttons/Browse';
-import Home from './buttons/Home';
-import MyBooks from './buttons/MyBooks';
+import NavBarLink from './buttons/NavBarLink';
 
 const NavBarButtons = () => {
   return (
     <div className="nav-buttons">
-      <li><Home /></li>
-      <li><MyBooks /></li>
-      <li><Browse /></li>
+      <li><NavBarLink
+        path={'/'}
+        text={"Home"}
+        class={"nav-button"}/>
+      </li>
+      <li><NavBarLink
+        path={'/my-books'}
+        text={"My Books"}
+        class={"nav-button"}/>
+      </li>
+      <li><NavBarLink
+        path={'/books'}
+        text={"Browse"}
+        class={"nav-button"}/>
+      </li>
     </div>
   )
 }

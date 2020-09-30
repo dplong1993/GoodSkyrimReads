@@ -103,7 +103,19 @@
 ### Nav bar feature
 * Create a nav-bar with buttons to access different parts of the site.
   - Start-time: 7:40 am
-  - End-time:
+  - End-time: 8:10 am
+
+* Code review and morning meetings
+  - Start-time: 8:15 am
+  - End-time: 9:55 am
+
+* Refactoring code to make it dryer
+  * Refactor buttons to one component that takes in props
+    - Start-time: 9:55 am
+    - End-time:  am
+  * Refactor components into styled components
+    - Start-time:  am
+    - End-time:  am
 
 * Style the nav bar component
   - Start-time:

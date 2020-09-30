@@ -1,9 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Login from './buttons/Login';
 import Logout from './buttons/Logout';
-import Profile from './buttons/Profile';
-import Signup from './buttons/Signup';
+import NavBarLink from './buttons/NavBarLink';
 
 const AuthNavButtons = () => {
   const currentUserId = useSelector(state => state.authentication.id);
@@ -12,12 +10,24 @@ const AuthNavButtons = () => {
     <div className="auth-nav-buttons">
       {currentUserId ?
       <>
-        <Profile />
+        <NavBarLink
+          path = {'/profile'}
+          text = {'Profile'}
+          class = {'nav-button'}
+        />
         <Logout />
       </>
       :<>
-        <Login />
-        <Signup />
+        <NavBarLink
+          path = {'/login'}
+          text = {'Login'}
+          class = {'nav-button'}
+        />
+        <NavBarLink
+          path = {'/signup'}
+          text = {'Signup'}
+          class = {'nav-button'}
+        />
       </>}
     </div>
   )

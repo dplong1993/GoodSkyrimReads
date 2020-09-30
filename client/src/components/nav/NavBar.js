@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import AuthNavButtons from './AuthNavButtons';
 import Logo from './buttons/Logo';
 import NavBarButtons from './NavBarButtons';

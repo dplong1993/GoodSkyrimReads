@@ -9,8 +9,8 @@ import { login } from '../../store/authentication';
 // FIELDS WILL LOG IN THE DEMO USER
 
 const Login = () =>  {
-  const [email, setEmail] = useState('demo@example.com');
-  const [password, setPassword] = useState('password');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.authentication.id);
 
@@ -19,23 +19,29 @@ const Login = () =>  {
     dispatch(login(email, password));
   }
 
+  //CHANGE NAMES OF HANDLERS
+
   const handleClick = () => {
     const demoEmail = 'demo@example.com';
     const demoPassword = 'password';
     dispatch(login(demoEmail, demoPassword));
   }
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  }
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    switch(name){
+      case "email":
+        setEmail(value);
+      default:
+        setPassword(value);
+    }
   }
 
   if (currentUserId) {
     return <Redirect to="/" />;
   }
+
+  //Change labels to use htmlfor and change name to id
 
   return (
     <div className="loginandsignup">
@@ -44,15 +50,17 @@ const Login = () =>  {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <div className="input-fields">
-              <label>Email address</label>
+              <label htmlFor="email">Email address</label>
               <input type="email"
+                    id= "email"
                     placeholder="you@yours.com"
-                    onChange={updateEmail} />
+                    onChange={handleChange} />
             </div>
             <div className="input-fields">
               <label>Password</label>
               <input type="password"
-                    onChange={updatePassword} />
+                    name="password"
+                    onChange={handleChange} />
             </div>
             <div className="login-spacer"></div>
             <div className="login-submit">

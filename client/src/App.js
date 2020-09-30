@@ -18,17 +18,13 @@ function App() {
             <NavBar />
             : null}
             <Switch>
-                <Route path="/login">
-                    <Login />
-                </Route>
+                <Route path="/login" component={Login} />
 
                 <Route path="/signup">
                     <Signup />
                 </Route>
 
-                <Route path="/">
-                    <h1>My Home Page</h1>
-                </Route>
+                <Route path="/" render={() => <h1>Home Page</h1> } />
             </Switch>
         </>
     );
