@@ -46,6 +46,12 @@ const SignupFormWrapper = styled.div`
     padding: 0;
   }
 
+  .signupmessage {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    line-height: 18px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -61,7 +67,7 @@ const SignupFormWrapper = styled.div`
     text-align: left;
   }
 
-  .input-fields {
+  .input-wrapper {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -93,8 +99,9 @@ const SignupFormWrapper = styled.div`
     height: 10px;
   }
 
-  .signup-submit {
+  .submit {
     display: flex;
+    margin-top: 10px;
     align-items: center;
     justify-content: flex-start;
   }
@@ -114,7 +121,7 @@ const SignupFormWrapper = styled.div`
     font-weight: bold;
   }
 
-  .signup-login {
+  .login {
     font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
     text-align: center;
     margin-left: 24px;
@@ -165,14 +172,13 @@ const Signup = () => {
 
   return (
     <div className="loginandsignup">
-      <SignupFormWrapper className="loginandsignup-main">
+      <SignupFormWrapper>
         <h1>Sign up for GSR</h1>
-        <h2>Sign up to see what your friends are reading, get book recommendations,
-and join the world’s largest community of readers.</h2>
+        <h2>Sign up to see what your friends are reading, get book recommendations, and join the world’s largest community of readers.</h2>
         <h2 className="signupmessage">Sign Up with Email</h2>
         <form onSubmit={handleSignUp}>
           <fieldset>
-            <div className="input-fields">
+            <div className="input-wrapper">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -180,7 +186,7 @@ and join the world’s largest community of readers.</h2>
                 placeholder="Name"
                 onChange={handleChange} />
             </div>
-            <div className="input-fields">
+            <div className="input-wrapper">
               <label htmlFor="email">Email address</label>
               <input
                 type="email"
@@ -188,17 +194,16 @@ and join the world’s largest community of readers.</h2>
                 placeholder="you@yours.com"
                 onChange={handleChange} />
             </div>
-            <div className="input-fields">
+            <div className="input-wrapper">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
                 id="password"
                 onChange={handleChange} />
             </div>
-            <div className="spacer"></div>
-            <div className="signup-submit">
+            <div className="submit">
               <button type="submit">Sign up</button>
-              <div className="signup-login">
+              <div className="login">
                 <span>
                   <span>Already a member?</span>
                   <a href="/login">Sign in</a>

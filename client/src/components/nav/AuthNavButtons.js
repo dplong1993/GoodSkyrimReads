@@ -1,35 +1,47 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Logout from './buttons/Logout';
+import { useDispatch, useSelector } from 'react-redux';
 import NavBarLink from './buttons/NavBarLink';
+import { logout } from '../../store/authentication';
+import styled from 'styled-components';
+
+const AuthNavButtonsWrapper = styled.div`
+  margin: auto;
+  display: flex;
+`;
 
 const AuthNavButtons = () => {
   const currentUserId = useSelector(state => state.authentication.id);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  }
 
   return (
-    <div className="auth-nav-buttons">
+    <AuthNavButtonsWrapper>
       {currentUserId ?
       <>
         <NavBarLink
           path = {'/profile'}
           text = {'Profile'}
-          class = {'nav-button'}
         />
-        <Logout />
+        <NavBarLink
+          path = {'/'}
+          text = {'Logout'}
+          handle = {handleLogout}
+        />
       </>
       :<>
         <NavBarLink
           path = {'/login'}
           text = {'Login'}
-          class = {'nav-button'}
         />
         <NavBarLink
           path = {'/signup'}
           text = {'Signup'}
-          class = {'nav-button'}
         />
       </>}
-    </div>
+    </AuthNavButtonsWrapper>
   )
 };
 
