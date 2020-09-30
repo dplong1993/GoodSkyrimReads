@@ -6,16 +6,22 @@ const NavBarLinkWrapper = styled.div`
   .link {
     font-size: 16px;
     padding: 12px 24px;
-    border-radius: 3px;
-    border: 1px solid #d6d0c4;
     appearance: none;
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
-    color: #333333;
+    color: #382110;
     background-color: #f4f1ea;
-    line-height: 1;
+    line-height: 50px;
     font-weight: bold;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    padding: 0 15px;
+  }
+
+  .link:hover {
+    color: #FFFFFF;
+    background-color: #382110;
+    outline: 0;
   }
 `;
 
@@ -31,12 +37,8 @@ const NavBarLink = (props) => {
           className='link'
           onClick={props.handle}
           to={props.path}
-          style={{
-            color: 'black',
-            textDecoration: 'none'
-          }}
       >
-          {props.text}
+        {props.text}
       </NavLink>
     </NavBarLinkWrapper>
   )

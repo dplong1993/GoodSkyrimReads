@@ -5,8 +5,10 @@ import { logout } from '../../store/authentication';
 import styled from 'styled-components';
 
 const AuthNavButtonsWrapper = styled.div`
-  margin: auto;
   display: flex;
+  vertical-align: top;
+  margin: 0 15px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 `;
 
 const AuthNavButtons = () => {

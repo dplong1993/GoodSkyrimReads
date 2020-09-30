@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 const NavBarButtonsWrapper = styled.div`
   display: flex;
-  margin: auto;
+  vertical-align: top;
+  margin: 0 15px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 `;
 
 const NavBarButtons = () => {

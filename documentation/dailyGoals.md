@@ -112,11 +112,18 @@
 * Refactoring code to make it dryer
   * Refactor buttons to one component that takes in props
     - Start-time: 9:55 am
-    - End-time:  am
+    - End-time: 10:30 am
   * Refactor components into styled components
-    - Start-time:  am
-    - End-time:  am
+    * Refactor login and signup components
+      - Start-time: 10:30 am
+      - End-time: 11:00 am
+    * Refactor login and signup components css and classes
+      - Start-time: 11:00 am
+      - End-time: 11:15 am
+    * Refactor login and signup components css and classes
+      - Start-time: 12:30 pm
+      - End-time: 1:30 pm
 
 * Style the nav bar component
-  - Start-time:
-  - End-time:
+  - Start-time: 1:30 pm
+  - End-time: 2:30 pm

@@ -8,7 +8,15 @@ const Logo = () => {
       style={{
         color: 'brown',
         textDecoration: 'none',
-        fontSize: '20px',
+        fontSize: '15px',
+        width: '140px',
+        height: '50px',
+        margin: "0 0 0 15px",
+        display: "inline-block",
+        fontWeight: "bold",
+        fontFamily: '"Lato", "Helvetica Neue", "Helvetica", sans-serif',
+        textAlign: "center",
+        lineHeight: "50px"
       }}
     >
       GoodSkyrimReads
