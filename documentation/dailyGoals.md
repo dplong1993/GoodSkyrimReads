@@ -131,9 +131,11 @@
 ### Home Page feature
 * Create components for side-bar and main
   - Start-time: 3:00 pm
-  - End-time:  pm
+  - End-time: 3:30 pm
 * Set up main component to display book information for 5-10 books
   * Set up backend for books
+    - Start-time: 3:00 pm
+    - End-time: 3:30 pm
   * Set up redux related components for books
   * Link the main component to the book state
   * Style main component
