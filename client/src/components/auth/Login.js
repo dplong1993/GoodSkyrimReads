@@ -14,26 +14,29 @@ const Login = () =>  {
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.authentication.id);
 
-  const handleSubmit = (e) => {
+  const handleLogIn = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
   }
 
-  //CHANGE NAMES OF HANDLERS
-
-  const handleClick = () => {
+  const handleDemoLogIn = (e) => {
+    e.preventDefault();
     const demoEmail = 'demo@example.com';
     const demoPassword = 'password';
     dispatch(login(demoEmail, demoPassword));
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
-    switch(name){
+    const {id, value} = e.target;
+    switch(id){
       case "email":
         setEmail(value);
-      default:
+        return;
+      case "password":
         setPassword(value);
+        return;
+      default:
+        return;
     }
   }
 
@@ -47,7 +50,7 @@ const Login = () =>  {
     <div className="loginandsignup">
       <main className="loginandsignup-main">
         <h1>Sign in to GoodSkyrimReads</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogIn}>
           <fieldset>
             <div className="input-fields">
               <label htmlFor="email">Email address</label>
@@ -57,16 +60,16 @@ const Login = () =>  {
                     onChange={handleChange} />
             </div>
             <div className="input-fields">
-              <label>Password</label>
+              <label htmlFor="password">Password</label>
               <input type="password"
-                    name="password"
+                    id="password"
                     onChange={handleChange} />
             </div>
             <div className="login-spacer"></div>
             <div className="login-submit">
               <div className="login-buttons">
                 <button type="submit">Sign in</button>
-                <button className="demouser" onClick={handleClick}>Demo User</button>
+                <button className="demouser" onClick={handleDemoLogIn}>Demo User</button>
               </div>
               <div className="login-signup">
                 <span>

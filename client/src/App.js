@@ -10,7 +10,7 @@ function App() {
     //Will be either undefined or a number depending on if there is a token in the cookies
     const currentUserId = useSelector(state=> state.authentication.id);
     let location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     return (
         <>
