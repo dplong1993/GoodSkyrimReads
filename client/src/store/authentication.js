@@ -1,20 +1,12 @@
 import Cookies from 'js-cookie'
 
 const SET_USER = 'goodskyrimreads/authentication/SET_USER';
-const SET_CURRENT_USER_ID = 'goodskyrimreads/authentication/SET_CURRENT_USER_ID';
 const REMOVE_USER = 'goodskyrimreads/authentication/REMOVE_USER'
 
 export const setUser = user => {
   return {
     type: SET_USER,
     user
-  };
-};
-
-export const setCurrentUserId = id => {
-  return {
-    type: SET_CURRENT_USER_ID,
-    id
   };
 };
 
@@ -93,8 +85,6 @@ export default function reducer(state = loadUser(), action){
   switch(action.type){
     case SET_USER:
       return action.user;
-    case SET_CURRENT_USER_ID:
-      return action.id;
     case REMOVE_USER:
       return {};
     default:

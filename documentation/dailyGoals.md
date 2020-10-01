@@ -127,3 +127,22 @@
 * Style the nav bar component
   - Start-time: 1:30 pm
   - End-time: 2:30 pm
+
+### Home Page feature
+* Create components for side-bar and main
+  - Start-time: 3:00 pm
+  - End-time: 3:30 pm
+* Set up main component to display book information for 5-10 books
+  * Set up database stuff for books
+    - Start-time: 3:30 pm
+    - End-time: 4:05 pm
+  * Set up backend for books
+    - Start-time: 4:05 pm
+    - End-time: 4:30 pm
+
+## 10/01/20
+
+### Home Page feature
+* Set up home page
+  Start-time: 8:20 am
+  End-time: 2:38 pm

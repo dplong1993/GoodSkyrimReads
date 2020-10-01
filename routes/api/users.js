@@ -16,7 +16,7 @@ const email =
 const name =
   check('name')
     .not().isEmpty()
-    .withMessage('Please provide a player name');
+    .withMessage('Please provide a name for the user');
 
 const password =
   check('password')
