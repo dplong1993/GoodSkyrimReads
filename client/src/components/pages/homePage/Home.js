@@ -8,6 +8,8 @@ const HomeWrapper = styled.div`
   background-color: #f9f7f4;
   height: 100%;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const Home = () => {

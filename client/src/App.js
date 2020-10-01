@@ -7,6 +7,7 @@ import Home from './components/pages/homePage/Home';
 import Profile from './components/pages/Profile';
 import Books from './components/pages/Books';
 import MyBooks from './components/pages/MyBooks';
+import ComingSoon from './components/pages/ComingSoon';
 
 function App() {
     let location = useLocation();
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/profile" component={Profile} />
                 <Route path="/my-books" component={MyBooks} />
                 <Route path="/books" component={Books} />
+                <Route path="/recommendations" component={ComingSoon} />
                 <Route path="/" component={Home} />
                 {/* <Route path="/" render={() => <h1>Home Page</h1> } /> */}
             </Switch>

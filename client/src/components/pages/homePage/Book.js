@@ -6,7 +6,6 @@ const BookWrapper = styled.div`
   border-radius: 2px;
   background-color: #FFFFFF;
   margin-bottom: 16px;
-  margin-left: 20px;
   padding-top: 8px;
   line-height: 1.5;
   color: #333333;
