@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { loadBooks } from '../../../store/books';
+import { useDispatch } from 'react-redux';
 
 const MainWrapper = styled.div`
   margin-left: 25px;
 `;
 
 const Main = () => {
+  const dispatch = useDispatch();
+
   const handleClick = async () => {
-    const res = await fetch(`/api/books`);
-    const data = await res.json();
-    console.log(data);
+    dispatch(loadBooks());
   }
 
   return (
