@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { loadBooks } from '../../../store/books';
 import { useDispatch, useSelector } from 'react-redux';
-import Book from '../../Book';
+import Book from './Book';
 
 const MainWrapper = styled.div`
   margin-left: 75px;
