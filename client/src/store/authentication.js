@@ -4,7 +4,6 @@ const SET_USER = 'goodskyrimreads/authentication/SET_USER';
 const REMOVE_USER = 'goodskyrimreads/authentication/REMOVE_USER'
 
 export const setUser = user => {
-  debugger
   return {
     type: SET_USER,
     user
@@ -85,7 +84,6 @@ export const logout = () => {
 export default function reducer(state = loadUser(), action){
   switch(action.type){
     case SET_USER:
-      debugger
       return action.user;
     case REMOVE_USER:
       return {};

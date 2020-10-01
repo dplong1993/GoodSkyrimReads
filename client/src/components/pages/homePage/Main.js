@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Book from '../../Book';
 
 const MainWrapper = styled.div`
-  margin-left: 25px;
+  margin-left: 75px;
+  margin-top: 50px;
 `;
 
 const Main = () => {
@@ -18,10 +19,9 @@ const Main = () => {
 
   return (
     <MainWrapper>
-      <h1>Main Component</h1>
       {books.map(book => {
         return (
-        <Book book={book}/>
+        <Book key={book.id} book={book}/>
         )
       })}
     </MainWrapper>
