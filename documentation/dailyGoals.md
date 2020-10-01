@@ -138,8 +138,15 @@
     - End-time: 4:05 pm
   * Set up backend for books
     - Start-time: 4:05 pm
-    - End-time: pm
+    - End-time: 4:30 pm
+
+## 10/01/20
+
+### Home Page feature
+* Set up main component to display book information for 5-10 books
   * Set up redux related components for books
+    - Start-time: 8:25 am
+    - End-time: am
   * Link the main component to the book state
   * Style main component
 * Set up side component

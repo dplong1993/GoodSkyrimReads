@@ -43,7 +43,7 @@ const coverPhotoUrl =
 // }));
 
 router.get('/', authenticated, asyncHandler(async function(_req, res) {
-  const books = await BookRepository.list();
+  const books = await BookRepository.findAll();
   res.json(books);
 }));
 
