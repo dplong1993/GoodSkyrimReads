@@ -143,14 +143,6 @@
 ## 10/01/20
 
 ### Home Page feature
-* Set up main component to display book information for 5-10 books
-  * Set up redux related components for books
-    - Start-time: 8:25 am
-    - End-time: am
-  * Link the main component to the book state
-  * Style main component
-* Set up side component
-  * Add a search bar section to add to currently reading list
-  * Add a section for want to read that display book images
-  * Add section for bookshelves that shows number of books in each bookshelf
-  * Style the components
+* Set up home page
+  Start-time: 8:20 am
+  End-time: 2:38 pm
