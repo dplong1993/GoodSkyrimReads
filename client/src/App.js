@@ -19,19 +19,21 @@ import { useSelector } from 'react-redux';
 //Need to look into authentication state loading but the token not being in cookies. Causes problems
 // with logout functionality.
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props) => (
-      rest.needLogin === true
-        ? <Redirect to='/login' />
-        : <Component {...props} />
-    )} />
-  )
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    let needLogin = useSelector(state => !state.authentication.id);
+
+    return (
+        <Route {...rest} render={(props) => (
+            needLogin
+            ? <Redirect to='/login' />
+            : <Component {...props} />
+        )} />
+    )
+}
 
 function App() {
     let location = useLocation();
-    let needLogin = useSelector(state => !state.authentication.id);
 
-    console.log(needLogin);
     return (
         <>
             {location.pathname !== '/login' && location.pathname !== '/signup' ?
@@ -43,31 +45,26 @@ function App() {
                 <PrivateRoute
                     path="/profile"
                     exact={true}
-                    needLogin={needLogin}
                     component={Profile}
                 />
                 <PrivateRoute
                     path="/my-books"
                     exact={true}
-                    needLogin={needLogin}
                     component={MyBooks}
                 />
                 <PrivateRoute
                     path="/books"
                     exact={true}
-                    needLogin={needLogin}
                     component={Books}
                 />
                 <PrivateRoute
                     path="/recommendations"
                     exact={true}
-                    needLogin={needLogin}
                     component={ComingSoon}
                 />
                 <PrivateRoute
                     path="/"
                     exact={true}
-                    needLogin={needLogin}
                     component={Home}
                 />
                 {/* <Route path="/profile" component={Profile} />

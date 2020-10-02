@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { loadBooks } from '../../../store/books';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
 const MainWrapper = styled.div`
@@ -16,13 +15,7 @@ const MainWrapper = styled.div`
 `;
 
 const Main = () => {
-  const dispatch = useDispatch();
   const books = useSelector(state => state.books);
-  // const currentUserId = useSelector(state => state.authentication.id);
-
-  useEffect(() => {
-    dispatch(loadBooks());
-  }, [dispatch])
 
   return (
     <MainWrapper>
