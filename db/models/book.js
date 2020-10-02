@@ -22,11 +22,19 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 50]
       }
     },
-    coverPhotoUrl: {
+    bookSeries: {
+      allowNull: false,
       type: DataTypes.STRING,
-      //Since this can be null will this work
       validates: {
-        len: [0, 1000]
+        len: [3, 100]
+      }
+    },
+    coverPhotoUrl: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      validates: {
+        isUrl: true,
+        len: [0, 1000],
       }
     }
   }, {});
@@ -40,6 +48,7 @@ module.exports = (sequelize, DataTypes) => {
   Book.prototype.toSafeObject = function () {
     return {
       author: this.author,
+      bookSeries: this.bookSeries,
       coverPhotoUrl: this.coverPhotoUrl,
       createdAt: this.createdAt,
       description: this.description,
