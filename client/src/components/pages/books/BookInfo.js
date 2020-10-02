@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadBook } from '../../../store/currentbook';
+import styled from 'styled-components';
 
 //Seems like navigating via the a link is causing a refresh
 // which is causing state to reset. May not want that.
 
+const BookInfoWrapper = styled.div`
+  margin: 0px auto;
+  width: 970px;
+  background: #FFFFFF;
+  display: flex;
+`;
+
 const BookInfo = ({ match: { params: { id } } }) => {
   const dispatch = useDispatch();
-  const book = useSelector(state => state.books)
+  const book = useSelector(state => state.currentBook)
 
   useEffect(() => {
     dispatch(loadBook(id));
@@ -18,7 +26,21 @@ const BookInfo = ({ match: { params: { id } } }) => {
   }
 
   return (
-    <h1>Book {book.id} Page</h1>
+    <BookInfoWrapper>
+      <div className="imagecol">
+        <div className="image">
+          <img src={book.coverPhotoUrl} alt="Cover"></img>
+        </div>
+        <div className="interact-buttons">Buttons to interact with book</div>
+      </div>
+      <div className="book-info">
+        <div className="title">{book.title}</div>
+        <div className="series">Book Series</div>
+        <div className="author">{book.author}</div>
+        <div className="meta">Book meta (ratings, reviews, etc)</div>
+        <div className="description">{book.description}</div>
+      </div>
+    </BookInfoWrapper>
   );
 };
 
