@@ -51,7 +51,9 @@ const Book = ({ book }) => {
   return (
     <BookWrapper>
       <div className="book">
-        <img className="cover" src={book.coverPhotoUrl} alt="Cover"/>
+        <a href={`/books/${book.id}`}>
+          <img className="cover" src={book.coverPhotoUrl} alt="Cover"/>
+        </a>
         <div className="info">
           <div className="title">{book.title}</div>
           <div className="author">
