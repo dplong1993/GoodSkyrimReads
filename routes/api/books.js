@@ -47,4 +47,9 @@ router.get('/', authenticated, asyncHandler(async function(_req, res) {
   res.json(books);
 }));
 
+router.get('/:id', authenticated, asyncHandler(async function(req, res){
+  const book = await BookRepository.findById(req.params.id);
+  res.json(book);
+}));
+
 module.exports = router;
