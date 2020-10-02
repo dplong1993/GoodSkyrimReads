@@ -13,21 +13,30 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 ### Demo user account log-in (9/29/20 .5 day)
 * A user account that anyone can use to explore the functionality of the site.
 
-### View book information (9/30/20, 1 day)
+### NavBar (9/30/20 .5 days)
+* A navbar will be present on all pages besides the login and signup page.
+* It will contain different buttons to help the user navigate through the pages of the site.
+
+### Home page (9/30/20, 1 day)
+* A page displaying a sidebar and a main section
+* The side-bar contains three different sections relating to bookshelves of the current user
+* The main section displays a list of books in the database and their information.
+
+### View book information (10/01/20, 1 day)
 * Anyone can click on the picture of a book to see information about the book.
 
-### Bookshelves (10/1/20, 2 days)
+### Bookshelves (10/2/20, 2 days)
 * A user can choose to add a book to their bookshelves.
 * The user can then navigate to their bookshelves to look at all the books they have saved.
 * The user can delete books from their bookshleves if they no longer want to have them saved.
 
-### Reviews (10/3/20, 1 days)
+### Reviews (10/4/20, 1 days)
 * A user can leave reviews on different books via 5 stars.
 * The stars will initialy be grey.
 * Once the user leaves their review (from 1-5 stars) the corresponding stars will change to   yellow
 * Along with the stars a user will be able to leave a detailed review in the form of comments.
 
-### Read Status (will read, have read, etc.) (10/4/20 1 day)
+### Bonus: Read Status (will read, have read, etc.)
 * The user will be able to mark books with different statuses using a drop down menu on the book's information page.
 * The statuses will be want to read, currently reading, and have read.
 

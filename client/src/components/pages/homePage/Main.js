@@ -18,6 +18,7 @@ const MainWrapper = styled.div`
 const Main = () => {
   const dispatch = useDispatch();
   const books = useSelector(state => state.books);
+  // const currentUserId = useSelector(state => state.authentication.id);
 
   useEffect(() => {
     dispatch(loadBooks());

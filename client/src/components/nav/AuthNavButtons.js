@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBarLink from './buttons/NavBarLink';
 import { logout } from '../../store/authentication';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 const AuthNavButtonsWrapper = styled.div`
   display: flex;
@@ -13,10 +14,15 @@ const AuthNavButtonsWrapper = styled.div`
 
 const AuthNavButtons = () => {
   const currentUserId = useSelector(state => state.authentication.id);
+  const loggedOut = useSelector(state => !state.authentication.id);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logout());
+  }
+
+  if (loggedOut) {
+    return <Redirect to="/login" />;
   }
 
   return (
