@@ -32,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   User.associate = function(models) {
+    User.hasMany(models.Read, {foreignKey: 'userId'});
+    User.belongsToMany(models.Book, {
+      through: models.Read,
+      foreignKey: 'userId',
+      otherKey: 'bookId'
+    });
   };
 
   User.prototype.isValid = () => true;
