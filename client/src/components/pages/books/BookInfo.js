@@ -10,9 +10,69 @@ import styled from 'styled-components';
 
 const BookInfoWrapper = styled.div`
   margin: 0px auto;
+  margin-top: 90px;
   width: 970px;
   background: #FFFFFF;
   display: flex;
+  padding: 8px 10px;
+
+  .imagecol {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+
+  .image{
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+
+  .book-info{
+    width: 455px;
+  }
+
+  .title{
+    width: 100%;
+    font-weight: bold;
+    font-family: "Merriweather", "Georgia", serif;
+    color: #333333;
+    font-size: 24px;
+    line-height: 1.25;
+    padding-bottom: 2px;
+    margin: 4px 0px;
+  }
+
+  .series{
+    color: #999999;
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 16px;
+    margin: 4px 0px;
+  }
+
+  .author{
+    display: flex;
+    font-family: "Merriweather", "Georgia", serif;
+    color: #333333;
+    font-size: 16px;
+  }
+
+  .by {
+    margin-right: 5px;
+  }
+
+  .meta {
+    height: 20px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    line-height: 21px;
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 14px;
+    overlap: break-word;
+    color: rgb(51, 51, 51);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
 `;
 
 const BookInfo = ({ match: { params: { id } } }) => {
@@ -30,16 +90,19 @@ const BookInfo = ({ match: { params: { id } } }) => {
   return (
     <BookInfoWrapper>
       <div className="imagecol">
-        <div className="image">
-          <img src={book.coverPhotoUrl} alt="Cover"></img>
+        <div>
+          <img className="image" src={book.coverPhotoUrl} alt="Cover"></img>
         </div>
-        <div className="interact-buttons">Buttons to interact with book</div>
+        <div className="interact-buttons"></div>
       </div>
       <div className="book-info">
-        <div className="title">{book.title}</div>
-        <div className="series">{book.bookSeries}</div>
-        <div className="author">{book.author}</div>
-        <div className="meta">Book meta (ratings, reviews, etc)</div>
+        <h1 className="title">{book.title}</h1>
+        <h2 className="series">({book.bookSeries})</h2>
+        <div className="author">
+          <div className="by">by</div>
+          <div className="author-name">{book.author}</div>
+        </div>
+        <div className="meta"></div>
         <div className="description">{book.description}</div>
       </div>
     </BookInfoWrapper>
