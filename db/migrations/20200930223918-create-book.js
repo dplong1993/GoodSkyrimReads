@@ -20,7 +20,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(50)
       },
+      bookSeries: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
       coverPhotoUrl: {
+        allowNull: false,
         type: Sequelize.STRING(1000)
       },
       createdAt: {
