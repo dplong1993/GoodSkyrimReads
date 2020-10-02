@@ -74,7 +74,8 @@ export const logout = () => {
       method: 'delete',
     });
     if (response.ok) {
-      dispatch(removeUser());
+      await dispatch(removeUser());
+      debugger
     }
   }
 }
@@ -86,6 +87,7 @@ export default function reducer(state = loadUser(), action){
     case SET_USER:
       return action.user;
     case REMOVE_USER:
+      debugger
       return {};
     default:
       return state;

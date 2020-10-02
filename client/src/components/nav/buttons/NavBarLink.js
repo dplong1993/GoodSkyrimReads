@@ -36,7 +36,7 @@ const NavBarLink = (props) => {
       <NavLink
           className='link'
           onClick={props.handle}
-          to={props.path}
+          to = {props.path ? props.path : null}
       >
         {props.text}
       </NavLink>
