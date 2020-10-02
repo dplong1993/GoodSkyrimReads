@@ -4,11 +4,12 @@ import Login from './components/auth/Login';
 import NavBar from './components/nav/NavBar';
 import Signup from './components/auth/Signup';
 import Home from './components/pages/homePage/Home';
-import Profile from './components/pages/Profile';
-import Books from './components/pages/Books';
-import MyBooks from './components/pages/MyBooks';
+import Profile from './components/pages/userProfile/Profile';
+import Books from './components/pages/books/Books';
+import MyBooks from './components/pages/userBooks/MyBooks';
 import ComingSoon from './components/pages/ComingSoon';
 import { useSelector } from 'react-redux';
+import BookInfo from './components/pages/books/BookInfo';
 
 //Need to make routes private to ensure there is always a logged in user and forward to login page
 // if there is no logged in user or token present.
@@ -51,6 +52,11 @@ function App() {
                     path="/my-books"
                     exact={true}
                     component={MyBooks}
+                />
+                <PrivateRoute
+                    path="/books/:id"
+                    exact={true}
+                    component={BookInfo}
                 />
                 <PrivateRoute
                     path="/books"

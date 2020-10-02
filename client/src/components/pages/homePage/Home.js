@@ -15,7 +15,6 @@ const HomeWrapper = styled.div`
 `;
 
 const Home = () => {
-  debugger
   const dispatch = useDispatch();
   const books = useSelector(state => state.books);
 

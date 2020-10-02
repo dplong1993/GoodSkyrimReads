@@ -1,5 +1,6 @@
 const SET_BOOKS = 'goodskyrimreads/books/SET_BOOKS';
 
+
 export const setBooks = books => {
   return {
     type: SET_BOOKS,
@@ -20,6 +21,9 @@ export const loadBooks = () => {
     }
   }
 }
+
+//May need to split this reducer into a currentbook
+//and books slice of state.
 
 export default function reducer(state = [], action){
   switch(action.type){
