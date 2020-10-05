@@ -1,4 +1,4 @@
-const SET_BOOK = 'goodskyrimreads/books/SET_BOOK';
+const SET_BOOK = 'goodskyrimreads/currentBook/SET_BOOK';
 
 export const setBook = book => {
   return {
