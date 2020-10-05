@@ -2,16 +2,18 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import thunk from 'redux-thunk';
 import authentication from './authentication';
 import books from './books';
-import currentBook from './currentbook';
+import currentBook from './currentBook';
+import currentUser from './currentUser';
 
 // import pokemon from './pokemon';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
+  authentication,
   books,
   currentBook,
-  authentication,
+  currentUser,
 });
 
 const storeEnhancer = composeEnhancers(applyMiddleware(thunk));

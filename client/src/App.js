@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import Login from './components/auth/Login';
 import NavBar from './components/nav/NavBar';
@@ -8,8 +8,9 @@ import Profile from './components/pages/userProfile/Profile';
 import Books from './components/pages/books/Books';
 import MyBooks from './components/pages/userBooks/MyBooks';
 import ComingSoon from './components/pages/ComingSoon';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import BookInfo from './components/pages/books/BookInfo';
+import { getUserInfo } from './store/currentUser';
 
 //Need to make routes private to ensure there is always a logged in user and forward to login page
 // if there is no logged in user or token present.
@@ -33,7 +34,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 function App() {
+    let currentUserId = useSelector(state => state.authentication.id);
     let location = useLocation();
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserInfo(currentUserId));
+    }, [currentUserId, dispatch])
 
     return (
         <>
