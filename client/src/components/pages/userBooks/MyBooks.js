@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import TableRow from './TableRow';
 
 //Bottom border of header of table not working atm.
 
@@ -86,6 +88,11 @@ const MyBooksWrapper = styled.div`
 `;
 
 const MyBooks = () => {
+  const readShelf = useSelector(state => state.currentUser.Books);
+
+  if(readShelf === undefined){
+    return null;
+  }
 
   return (
     <MyBooksWrapper>
@@ -99,10 +106,10 @@ const MyBooks = () => {
           <div className="book-shelves">
             <div className="heading">Bookshelves</div>
             <div className="allshelf">
-              <a href="/my-books">All (0)</a>
+              <a href="/my-books">All ({readShelf.length})</a>
             </div>
             <div className="readshelf">
-              <a href="/my-books/read">Read (0)</a>
+              <a href="/my-books/read">Read ({readShelf.length})</a>
             </div>
             <div className="currentlyreadingshelf">
               <a href="/my-books/currentlyreading">Currently Reading (0)</a>
@@ -128,6 +135,11 @@ const MyBooks = () => {
                 <th className="date-added head-field" alt='date added'>date added</th>
               </tr>
             </thead>
+            <tbody>
+              {readShelf.map(book => {
+                return <TableRow book={book} />
+              })}
+            </tbody>
           </table>
         </div>
       </div>
