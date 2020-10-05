@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadBook } from '../../../store/currentbook';
+import { loadBook } from '../../../store/currentBook';
 import styled from 'styled-components';
 
 //Seems like navigating via the a link is causing a refresh

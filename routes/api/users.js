@@ -38,4 +38,9 @@ router.post('/', email, password, name, asyncHandler(async function (req, res, n
     res.json({ token, user: user.toSafeObject() });
 }));
 
+router.get('/:id/bookshelves', asyncHandler(async function (req, res, next) {
+  const user = await UserRepository.findBookshelves(req.params.id);
+  res.json(user);
+}));
+
 module.exports = router;

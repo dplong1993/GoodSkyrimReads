@@ -49,10 +49,10 @@ router.delete('/', [authenticated], asyncHandler(async (req, res) => {
   res.json({ message: 'success' });
 }));
 
-router.get('/', (req, res) => {
-  console.log('IN Session/');
-  res.json({hello: "hello"});
-});
+// router.get('/', (req, res) => {
+//   console.log('IN Session/');
+//   res.json({hello: "hello"});
+// });
 
 
 module.exports = router;

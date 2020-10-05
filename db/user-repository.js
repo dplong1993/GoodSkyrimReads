@@ -1,4 +1,4 @@
-const { User } = require('./models');
+const { User, Book } = require('./models');
 
 class NullUser {
   isValid() { return false; }
@@ -20,11 +20,17 @@ async function findByEmail(email) {
 
 async function findByTokenId(tokenId) {
   const user = await User.findOne({ where: { tokenId } });
-  return user || new UserPlayer();
+  return user || new NullUser();
+}
+
+async function findBookshelves(id) {
+  const user = await User.findByPk(id, { include: Book });
+  return user || new NullUser();
 }
 
 module.exports = {
   create,
   findByEmail,
   findByTokenId,
+  findBookshelves,
 };
