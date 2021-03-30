@@ -12,15 +12,20 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const dispatchLogin = (body) => {
+    return dispatch(sessionActions.login(body)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+    if (e.target.id === "demo-login") {
+      return dispatchLogin({ credential: "Demo-lition", password: "password" });
+    }
+    return dispatchLogin({ credential, password });
   };
 
   return (
@@ -48,7 +53,12 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button id="form-submit" type="submit">
+        Log In
+      </button>
+      <button id="demo-login" onClick={handleSubmit}>
+        Demo User
+      </button>
     </form>
   );
 }
