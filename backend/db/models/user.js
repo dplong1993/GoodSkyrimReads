@@ -25,6 +25,20 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256],
         },
       },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 30],
+        },
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 30],
+        },
+      },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
@@ -36,7 +50,14 @@ module.exports = (sequelize, DataTypes) => {
     {
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
+          exclude: [
+            "hashedPassword",
+            "email",
+            "lastName",
+            "firstName",
+            "createdAt",
+            "updatedAt",
+          ],
         },
       },
       scopes: {
@@ -54,8 +75,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, username, email, lastName, firstName } = this; // context will be the User instance
+    return { id, username, email, lastName, firstName };
   };
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
@@ -77,12 +98,20 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope("currentUser").findByPk(user.id);
     }
   };
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({
+    username,
+    email,
+    password,
+    lastName,
+    firstName,
+  }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
       hashedPassword,
+      lastName,
+      firstName,
     });
     return await User.scope("currentUser").findByPk(user.id);
   };
