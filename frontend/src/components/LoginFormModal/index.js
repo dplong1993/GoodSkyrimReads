@@ -7,11 +7,24 @@ const LoginFormModalWrapper = styled.div`
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 
   .button {
-    height: 100%;
-    width: 150px;
-    box-sizing: border-box;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    text-align: center;
+    font-size: 16px;
+    padding: 12px 24px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #382110;
+    background-color: #f4f1ea;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    padding: 0 15px;
+    border: none;
+  }
+  .button:hover {
+    color: #ffffff;
+    background-color: #382110;
+    outline: 0;
   }
 `;
 

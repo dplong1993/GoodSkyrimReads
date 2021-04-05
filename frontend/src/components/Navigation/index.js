@@ -1,9 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import NavBarLink from "../NavBarLink";
+import SearchBar from "../SearchBar";
+import LogoutButton from "../LogoutButton";
 import styled from "styled-components";
 
 const NavigationWrapper = styled.div`
@@ -44,7 +45,16 @@ function Navigation({ isLoaded }) {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+        <NavBarLink path="/my-books" text="My Books" />
+        <NavBarLink path="/books" text="Browse" />
+        <NavBarLink path="/profile" text="Profile" />
+        {/* <ProfileButton user={sessionUser} /> */}
+        <SearchBar />
+        <LogoutButton />
+      </>
+    );
   } else {
     sessionLinks = (
       <>
@@ -58,9 +68,7 @@ function Navigation({ isLoaded }) {
     <nav>
       <NavigationWrapper>
         <div className="nav-bar-content">
-          <NavLink className="home" exact to="/">
-            Home
-          </NavLink>
+          <NavBarLink path="/" text="Home" />
           {isLoaded && sessionLinks}
         </div>
       </NavigationWrapper>
