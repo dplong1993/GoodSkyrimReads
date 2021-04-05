@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import "./SignupForm.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -39,13 +40,14 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <form className="form" onSubmit={handleSubmit}>
+      <h1>Signup for SkyrimGoodReads</h1>
+      <ul className={errors.length > 0 ? "errors" : ""}>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
+      <label className="input-fields">
         Email
         <input
           type="text"
@@ -54,7 +56,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className="input-fields">
         Username
         <input
           type="text"
@@ -63,7 +65,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className="input-fields">
         FirstName
         <input
           type="text"
@@ -72,7 +74,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className="input-fields">
         LastName
         <input
           type="text"
@@ -81,7 +83,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className="input-fields">
         Password
         <input
           type="password"
@@ -90,7 +92,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label>
+      <label className="input-fields">
         Confirm Password
         <input
           type="password"
@@ -99,7 +101,9 @@ function SignupFormPage() {
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className="signup-button" type="submit">
+        Sign Up
+      </button>
     </form>
   );
 }

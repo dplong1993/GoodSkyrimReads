@@ -3,7 +3,6 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
-import SignupFormModal from "../SignupFormModal";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ function LoginFormPage() {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <h1>Log In to GoodSkyrimReads</h1>
-      <ul className="errors">
+      <ul className={errors.length > 0 ? "errors" : ""}>
         {errors.map((error, idx) => (
           <span className="error" key={idx}>
             {error}

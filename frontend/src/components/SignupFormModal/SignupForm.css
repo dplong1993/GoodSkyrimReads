@@ -72,13 +72,13 @@ button {
   line-height: 1;
   font-weight: bold;
 }
-
-.login-buttons {
+.signup-button {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  width: 300px;
+  margin: auto;
+  margin-top: 15px;
 }
-
 #form-submit {
   margin-right: 70px;
 }
