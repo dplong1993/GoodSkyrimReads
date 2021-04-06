@@ -2,7 +2,8 @@
 
 [x] Get the database set up
 [x] Get the Redux store set up
-[] Get the authorized home page set up
+[x] Get the authorized home page set up
+[] Get the api routes set up
 [] Get the books page set up
 [] Get the my-books page set up
 [] Get the profile page set up
