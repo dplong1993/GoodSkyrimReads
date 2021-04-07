@@ -1,0 +1,26 @@
+{
+  "name": "GoodSkyrimReads",
+  "version": "1.0.0",
+  "description": "This is a solo-project made using React and Redux in JavaScript for the frontend and Sequelize for the backend. It is a clone of the Goodreads website using books from the popular Elder Scrolls V Skyrim video game.",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "npm run build --prefix frontend",
+    "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
+    "dev:backend": "npm install --prefix backend start",
+    "dev:frontend": "npm install --prefix frontend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dplong1993/GoodSkyrimReads.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dplong1993/GoodSkyrimReads/issues"
+  },
+  "homepage": "https://github.com/dplong1993/GoodSkyrimReads#readme"
+}
