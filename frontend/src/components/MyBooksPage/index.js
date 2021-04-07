@@ -9,7 +9,7 @@ import TableRow from "./TableRow";
 const MyBooksPageWrapper = styled.div`
   margin: 0px auto;
   width: 970px;
-  background: #ffffff;
+  background: #f9f7f4;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   .header {
     padding-bottom: 5px;

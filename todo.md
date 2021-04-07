@@ -11,7 +11,7 @@
   [] Set up read shelf
   [] Set up want to read shelf
 [x] Get Heroku working
-[] Work on the splash page
+[x] Work on the splash page
 [] Get the profile page set up
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Get the books page set up
