@@ -2,7 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { User, Book } = require("../../db/models");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
@@ -63,6 +63,14 @@ router.post(
     return res.json({
       user,
     });
+  })
+);
+
+router.get(
+  "/:id/bookshelves",
+  asyncHandler(async function (req, res, next) {
+    const user = await User.findByPk(req.params.id, { include: Book });
+    res.json(user || {});
   })
 );
 
