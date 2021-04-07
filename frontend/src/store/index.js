@@ -3,13 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import books from "./books";
 import currentBook from "./currentBook";
-import readShelf from "./readShelf";
+import shelves from "./shelves";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   books,
   currentBook,
-  readShelf,
+  shelves,
 });
 
 let enhancer;

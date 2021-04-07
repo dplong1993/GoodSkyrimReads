@@ -12,6 +12,7 @@ const NavigationWrapper = styled.div`
   background-color: #f4f1ea;
   padding: 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  width: 100vw;
 
   .nav-bar-content {
     margin: 0 auto;

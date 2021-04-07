@@ -69,7 +69,13 @@ router.post(
 router.get(
   "/:id/bookshelves",
   asyncHandler(async function (req, res, next) {
-    const user = await User.findByPk(req.params.id, { include: Book });
+    const user = await User.findByPk(req.params.id, {
+      include: [
+        { model: Book, as: "ReadBooks" },
+        { model: Book, as: "CurrReadBooks" },
+        { model: Book, as: "ToReadBooks" },
+      ],
+    });
     res.json(user || {});
   })
 );

@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { loadBooks } from "../../store/readShelf";
 import TableRow from "./TableRow";
 
 //Bottom border of header of table not working atm.
 
 const MyBooksPageWrapper = styled.div`
   margin: 0px auto;
-  width: 970px;
+  width: 100vw;
   background: #f9f7f4;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   .header {
@@ -74,17 +73,7 @@ const MyBooksPageWrapper = styled.div`
 `;
 
 const MyBooksPage = () => {
-  const readShelf = useSelector((state) => state.readShelf);
-  const id = useSelector((state) => state.session.user.id);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadBooks(id));
-  }, [dispatch, id]);
-
-  if (readShelf === undefined) {
-    return null;
-  }
+  const shelves = useSelector((state) => state.shelves);
 
   return (
     <MyBooksPageWrapper>
@@ -100,10 +89,16 @@ const MyBooksPage = () => {
           <div className="book-shelves">
             <div className="heading">Bookshelves</div>
             <div className="allshelf">
-              <a href="/my-books">All ({readShelf.length})</a>
+              <a href="/my-books">
+                All (
+                {shelves.read.length +
+                  shelves.toRead.length +
+                  shelves.currRead.length}
+                )
+              </a>
             </div>
             <div className="readshelf">
-              <a href="/my-books/read">Read ({readShelf.length})</a>
+              <a href="/my-books/read">Read ({shelves.read.length})</a>
             </div>
             <div className="currentlyreadingshelf">
               <a href="/my-books/currentlyreading">Currently Reading (0)</a>
@@ -148,8 +143,14 @@ const MyBooksPage = () => {
               </tr>
             </thead>
             <tbody>
-              {readShelf.map((book) => {
-                return <TableRow book={book} />;
+              {shelves.read.map((book) => {
+                return <TableRow key={book.id} book={book} />;
+              })}
+              {shelves.toRead.map((book) => {
+                return <TableRow key={book.id} book={book} />;
+              })}
+              {shelves.currRead.map((book) => {
+                return <TableRow key={book.id} book={book} />;
               })}
             </tbody>
           </table>
