@@ -6,6 +6,10 @@
 [x] Get the api routes set up
 [x] Get the book-info page set up
 [] Get the my-books page set up
+  [x] Get my-books to working
+  [] Set up currently-reading shelf
+  [] Set up read shelf
+  [] Set up want to read shelf
 [] Get the profile page set up
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Work on the splash page

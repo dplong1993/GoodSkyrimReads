@@ -7,6 +7,8 @@ import SplashPage from "./components/SplashPage";
 import AuthorizedHomePage from "./components/AuthorizedHomePage";
 import BookInfoPage from "./components/BookInfoPage";
 import MyBooksPage from "./components/MyBooksPage";
+import BooksPage from "./components/BooksPage";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +33,12 @@ function App() {
               </Route>
               <Route exact path="/my-books">
                 <MyBooksPage />
+              </Route>
+              <Route exact path="/books">
+                <BooksPage />
+              </Route>
+              <Route exact path="/profile">
+                <ProfilePage />
               </Route>
             </>
           ) : (
