@@ -43,11 +43,8 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Book.associate = function (models) {
-    Book.hasMany(models.Read, { foreignKey: "bookId" });
     Book.belongsToMany(models.User, {
-      through: models.Read,
-      foreignKey: "bookId",
-      otherKey: "userId",
+      through: "Reads",
     });
   };
 
