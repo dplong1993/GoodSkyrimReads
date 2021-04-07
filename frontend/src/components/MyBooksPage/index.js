@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import TableRow from "./TableRow";
 
@@ -79,9 +80,9 @@ const MyBooksPage = () => {
     <MyBooksPageWrapper>
       <div className="header">
         <h1>
-          <a className="link-text" href="/my-books">
+          <Link className="link-text" to="/my-books">
             My Books
-          </a>
+          </Link>
         </h1>
       </div>
       <div className="main">
@@ -89,22 +90,22 @@ const MyBooksPage = () => {
           <div className="book-shelves">
             <div className="heading">Bookshelves</div>
             <div className="allshelf">
-              <a href="/my-books">
+              <Link to="/my-books">
                 All (
                 {shelves.read.length +
                   shelves.toRead.length +
                   shelves.currRead.length}
                 )
-              </a>
+              </Link>
             </div>
             <div className="readshelf">
-              <a href="/my-books/read">Read ({shelves.read.length})</a>
+              <Link to="/my-books/read">Read ({shelves.read.length})</Link>
             </div>
             <div className="currentlyreadingshelf">
-              <a href="/my-books/currentlyreading">Currently Reading (0)</a>
+              <Link to="/my-books/currentlyreading">Currently Reading (0)</Link>
             </div>
             <div className="wanttoreadshelf">
-              <a href="/my-books/wanttoread">Want To Read (0)</a>
+              <Link to="/my-books/wanttoread">Want To Read (0)</Link>
             </div>
             <div className="add-button"></div>
           </div>

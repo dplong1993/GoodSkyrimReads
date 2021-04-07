@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BookshelvesWrapper = styled.div`
@@ -34,14 +35,14 @@ const Bookshelves = () => {
       <h3 className="title">BOOKSHELVES</h3>
       <div className="content">
         <div className="shelf-count">
-          <a href="my-books">0</a>
-          <a href="my-books">0</a>
-          <a href="my-books">0</a>
+          <Link to="my-books">0</Link>
+          <Link to="my-books">0</Link>
+          <Link to="my-books">0</Link>
         </div>
         <div className="shelf-name">
-          <a href="my-books">Want to Read</a>
-          <a href="my-books">Currently Reading</a>
-          <a href="my-books">Read</a>
+          <Link to="my-books">Want to Read</Link>
+          <Link to="my-books">Currently Reading</Link>
+          <Link to="my-books">Read</Link>
         </div>
       </div>
     </BookshelvesWrapper>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableRow = ({ book }) => {
   return (
@@ -23,7 +24,7 @@ const TableRow = ({ book }) => {
       </td>
       <td>
         <div>
-          <a href={`/books/${book.id}/review`}>Write a review</a>
+          <Link to={`/books/${book.id}/review`}>Write a review</Link>
         </div>
       </td>
       <td>

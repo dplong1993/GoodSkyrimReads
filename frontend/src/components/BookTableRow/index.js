@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BookTableRowWrapper = styled.div`
@@ -44,9 +45,9 @@ const BookTableRow = ({ book }) => {
   return (
     <BookTableRowWrapper>
       <div className="book">
-        <a href={`/books/${book.id}`}>
+        <Link to={`/books/${book.id}`}>
           <img className="cover" src={book.coverPhotoUrl} alt="Cover" />
-        </a>
+        </Link>
         <div className="info">
           <div className="title">{book.title}</div>
           <div className="author">

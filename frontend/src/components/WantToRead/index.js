@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Add info from the want to read table for the current user to state. Use that info to display
@@ -74,9 +75,9 @@ const WantToRead = () => {
           />
         </svg>
       </div>
-      <a href="/my-books" className="shelf-link">
+      <Link to="/my-books" className="shelf-link">
         View all books
-      </a>
+      </Link>
     </WantToReadWrapper>
   );
 };

@@ -15,10 +15,14 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    if (sessionUser) dispatch(shelfActions.loadBooks(sessionUser.id));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (sessionUser) dispatch(shelfActions.loadBooks(sessionUser.id));
+  }, [dispatch, sessionUser]);
 
   return (
     <>

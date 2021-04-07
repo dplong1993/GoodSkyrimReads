@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SearchBar from "../SearchBar";
 
@@ -50,7 +51,7 @@ const CurrentlyReading = () => {
         <SearchBar />
       </div>
       <div className="recommendations">
-        <a href="/recommendations">Recommendations</a>
+        <Link to="/recommendations">Recommendations</Link>
       </div>
     </CurrentlyReadingWrapper>
   );
