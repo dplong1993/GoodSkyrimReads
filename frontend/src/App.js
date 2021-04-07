@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import AuthorizedHomePage from "./components/AuthorizedHomePage";
+import BookInfoPage from "./components/BookInfoPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,9 +21,14 @@ function App() {
       {isLoaded && (
         <Switch>
           {sessionUser ? (
-            <Route exact path="/">
-              <AuthorizedHomePage />
-            </Route>
+            <>
+              <Route exact path="/">
+                <AuthorizedHomePage />
+              </Route>
+              <Route exact path="/books/:id">
+                <BookInfoPage />
+              </Route>
+            </>
           ) : (
             <Route exact path="/">
               <SplashPage />

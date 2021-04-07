@@ -3,13 +3,14 @@
 [x] Get the database set up
 [x] Get the Redux store set up
 [x] Get the authorized home page set up
-[] Get the api routes set up
-[] Get the books page set up
+[x] Get the api routes set up
+[x] Get the book-info page set up
 [] Get the my-books page set up
 [] Get the profile page set up
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Work on the splash page
 [] Add more detail to the book info page
+[] Get the books page set up
 [] Add more seed data to authorized home page
 [] Get the favoring books portion set up
   [] Add new shelves
