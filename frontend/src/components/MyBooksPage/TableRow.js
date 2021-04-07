@@ -1,7 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-
-const TableRowWrapper = styled.div``;
 
 const TableRow = ({ book }) => {
   return (
@@ -26,7 +23,7 @@ const TableRow = ({ book }) => {
       </td>
       <td>
         <div>
-          <a>Write a review</a>
+          <a href={`/books/${book.id}/review`}>Write a review</a>
         </div>
       </td>
       <td>

@@ -10,9 +10,11 @@
   [] Set up currently-reading shelf
   [] Set up read shelf
   [] Set up want to read shelf
+[] Get Heroku working
 [] Get the profile page set up
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Work on the splash page
+[] Look for a tags and change them to Link or NavLinks
 [] Add more detail to the book info page
 [] Get the books page set up
 [] Add more seed data to authorized home page
