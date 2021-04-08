@@ -25,3 +25,4 @@
 [] Set up a review section
 [x] Update title of each page
 [] Add favicon and about links as footer
+[] Set up shelves pages to support scrolling

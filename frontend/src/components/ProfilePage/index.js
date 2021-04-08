@@ -1,5 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import BookTile from "../BookTile";
 
 const ProfilePageWrapper = styled.div`
   width: 100vw;
@@ -25,7 +28,7 @@ const ProfilePageWrapper = styled.div`
     flex-direction: column;
   }
 
-  img {
+  .user-img {
     height: 75%;
     border-radius: 50%;
   }
@@ -115,7 +118,8 @@ const ProfilePageWrapper = styled.div`
     color: #382110;
     font-weight: bold;
     border-bottom: solid 1px #d8d8d8;
-    font-size: 12px;
+    font-size: 15px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .shelves {
@@ -141,34 +145,64 @@ const ProfilePageWrapper = styled.div`
     border: solid 1px black;
     height: 120px;
   }
+
+  a {
+    color: #00635d;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+  }
 `;
 
 const ProfilePage = () => {
+  const shelves = useSelector((state) => state.shelves);
+  const { user } = useSelector((state) => state.session);
+
+  const generateBookTiles = () => {
+    if (shelves.read.length === undefined) return null;
+    if (shelves.toRead.length === undefined) return null;
+    if (shelves.currRead.length === undefined) return null;
+    const books = [...shelves.read, ...shelves.currRead, ...shelves.toRead];
+    if (books.length === 0) return <div>No matching items</div>;
+    return books.map((book, i) => {
+      if (i > 2) return null;
+      return <BookTile key={book.id} book={book}></BookTile>;
+    });
+  };
+
   return (
     <ProfilePageWrapper>
       <div className="main">
         <div className="profile-info">
           <div className="left-profile-info">
             <img
+              className="user-img"
               alt="user"
               src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/userimage.png"
             />
-            <div className="ratings">Ratings</div>
-            <div className="reviews">Reviews</div>
+            <Link to="/reviews" className="ratings">
+              0 Ratings
+            </Link>
+            <Link to="/ratings" className="reviews">
+              0 Reviews
+            </Link>
           </div>
           <div className="right-profile-info">
             <div className="name-holder">
-              <div className="name">UserName</div>
+              <div className="name">
+                {user.firstName} {user.lastName}
+              </div>
               <div className="edit-user">Link to edit profile</div>
             </div>
             <div className="detail-holder">
               <div className="container">
                 <div className="label-text">Details</div>
-                <div className="location">Location</div>
+                <div className="location">The Internet, Earth (0 mi)</div>
               </div>
               <div className="container">
                 <div className="label-text">Activity</div>
-                <div className="joined-date">Joined Date</div>
+                <div className="joined-date">
+                  Joined in {user.createdAt.slice(0, 7)}
+                </div>
               </div>
             </div>
             <div className="delete-holder">
@@ -177,22 +211,22 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="bookshelves">
-          <div className="header">Name's bookshelves</div>
+          <div className="header">{user.firstName}'s bookshelves</div>
           <div className="shelves">
-            <div className="shelf">Read</div>
-            <div className="shelf">Currently-Reading</div>
-            <div className="shelf">To-Read</div>
+            <Link to="my-books/read" className="shelf">
+              Read ({shelves.read.length})
+            </Link>
+            <Link to="/my-books/currentlyreading" className="shelf">
+              Currently-Reading ({shelves.currRead.length})
+            </Link>
+            <Link to="/my-books/wanttoread" className="shelf">
+              To-Read ({shelves.toRead.length})
+            </Link>
           </div>
         </div>
         <div className="activity-snapshot">
-          <div className="header">User's Activity</div>
-          <table>
-            <tbody>
-              <tr className="book-row">Book 1</tr>
-              <tr className="book-row">Book 2</tr>
-              <tr className="book-row">Book 3</tr>
-            </tbody>
-          </table>
+          <div className="header">{user.firstName}'s Activity</div>
+          {generateBookTiles()}
         </div>
       </div>
     </ProfilePageWrapper>
