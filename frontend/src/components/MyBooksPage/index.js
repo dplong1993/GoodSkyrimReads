@@ -102,10 +102,14 @@ const MyBooksPage = () => {
               <Link to="/my-books/read">Read ({shelves.read.length})</Link>
             </div>
             <div className="currentlyreadingshelf">
-              <Link to="/my-books/currentlyreading">Currently Reading (0)</Link>
+              <Link to="/my-books/currentlyreading">
+                Currently Reading ({shelves.currRead.length})
+              </Link>
             </div>
             <div className="wanttoreadshelf">
-              <Link to="/my-books/wanttoread">Want To Read (0)</Link>
+              <Link to="/my-books/wanttoread">
+                Want To Read ({shelves.toRead.length})
+              </Link>
             </div>
             <div className="add-button"></div>
           </div>
