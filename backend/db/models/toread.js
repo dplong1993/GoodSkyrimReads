@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   );
   ToRead.associate = function (models) {
     // associations can be defined here
-    ToRead.belongsTo(models.User, { foreignKey: "userId" });
-    ToRead.belongsTo(models.Book, { foreignKey: "bookId" });
+    ToRead.belongsTo(models.User, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
+    ToRead.belongsTo(models.Book, {
+      foreignKey: "bookId",
+      onDelete: "CASCADE",
+    });
   };
 
   ToRead.prototype.toSafeObject = function () {

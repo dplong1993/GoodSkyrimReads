@@ -43,26 +43,32 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Book.associate = function (models) {
-    Book.hasMany(models.Read, { foreignKey: "bookId" });
+    Book.hasMany(models.Read, { foreignKey: "bookId", onDelete: "CASCADE" });
     Book.belongsToMany(models.User, {
       as: "ReadUsers",
       through: models.Read,
       foreignKey: "bookId",
       otherKey: "userId",
+      onDelete: "CASCADE",
     });
-    Book.hasMany(models.CurrRead, { foreignKey: "bookId" });
+    Book.hasMany(models.CurrRead, {
+      foreignKey: "bookId",
+      onDelete: "CASCADE",
+    });
     Book.belongsToMany(models.User, {
       as: "CurrReadUsers",
       through: models.CurrRead,
       foreignKey: "bookId",
       otherKey: "userId",
+      onDelete: "CASCADE",
     });
-    Book.hasMany(models.ToRead, { foreignKey: "bookId" });
+    Book.hasMany(models.ToRead, { foreignKey: "bookId", onDelete: "CASCADE" });
     Book.belongsToMany(models.User, {
       as: "ToReadUsers",
       through: models.ToRead,
       foreignKey: "bookId",
       otherKey: "userId",
+      onDelete: "CASCADE",
     });
   };
 

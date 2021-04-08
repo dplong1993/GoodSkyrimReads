@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Read.associate = function (models) {
-    Read.belongsTo(models.User, { foreignKey: "userId" });
-    Read.belongsTo(models.Book, { foreignKey: "bookId" });
+    Read.belongsTo(models.User, { foreignKey: "userId", onDelete: "CASCADE" });
+    Read.belongsTo(models.Book, { foreignKey: "bookId", onDelete: "CASCADE" });
   };
 
   Read.prototype.toSafeObject = function () {

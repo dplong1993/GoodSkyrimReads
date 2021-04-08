@@ -71,26 +71,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    User.hasMany(models.Read, { foreignKey: "userId" });
+    User.hasMany(models.Read, { foreignKey: "userId", onDelete: "CASCADE" });
     User.belongsToMany(models.Book, {
       as: "ReadBooks",
       through: models.Read,
       foreignKey: "userId",
       otherKey: "bookId",
+      onDelete: "CASCADE",
     });
-    User.hasMany(models.ToRead, { foreignKey: "userId" });
+    User.hasMany(models.ToRead, { foreignKey: "userId", onDelete: "CASCADE" });
     User.belongsToMany(models.Book, {
       as: "ToReadBooks",
       through: models.ToRead,
       foreignKey: "userId",
       otherKey: "bookId",
+      onDelete: "CASCADE",
     });
-    User.hasMany(models.CurrRead, { foreignKey: "userId" });
+    User.hasMany(models.CurrRead, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
     User.belongsToMany(models.Book, {
       as: "CurrReadBooks",
       through: models.CurrRead,
       foreignKey: "userId",
       otherKey: "bookId",
+      onDelete: "CASCADE",
     });
   };
   User.prototype.toSafeObject = function () {

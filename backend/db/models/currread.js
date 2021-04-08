@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   );
   CurrRead.associate = function (models) {
     // associations can be defined here
-    CurrRead.belongsTo(models.User, { foreignKey: "userId" });
-    CurrRead.belongsTo(models.Book, { foreignKey: "bookId" });
+    CurrRead.belongsTo(models.User, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
+    CurrRead.belongsTo(models.Book, {
+      foreignKey: "bookId",
+      onDelete: "CASCADE",
+    });
   };
 
   CurrRead.prototype.toSafeObject = function () {
