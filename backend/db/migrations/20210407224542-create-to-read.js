@@ -20,6 +20,10 @@ module.exports = {
         onDelete: "CASCADE",
         type: Sequelize.INTEGER,
       },
+      shelfName: {
+        allowNull: false,
+        type: Sequelize.STRING(15),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

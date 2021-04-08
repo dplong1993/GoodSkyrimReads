@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER,
       },
+      shelfName: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validates: {
+          len: [3, 15],
+        },
+      },
     },
     {}
   );

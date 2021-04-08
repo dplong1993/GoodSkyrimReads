@@ -45,12 +45,22 @@ const BookTileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 200px;
   }
 
-  .shelf-actions {
+  .added-shelf-actions {
     display: flex;
     background-color: #f2f2f2;
     border: 1px solid #dddddd;
+    width: 125px;
+  }
+
+  .unadded-shelf-actions {
+    display: flex;
+    justify-content: space-between;
+    background-color: #409d69;
+    border: 1px solid #dddddd;
+    width: 125px;
   }
 
   .check-mark {
@@ -58,6 +68,10 @@ const BookTileWrapper = styled.div`
     background-color: #f2f2f2;
     height: 100%;
     margin-right: 5px;
+  }
+
+  .shelf-name {
+    width: 100%;
   }
 
   .rate-text {
@@ -69,10 +83,37 @@ const BookTileWrapper = styled.div`
     color: #999999;
     font-size: 11px;
   }
+
+  .carat-button {
+    background-color: #409d69;
+    border: none;
+    border-left: 1px solid grey;
+  }
+
+  .down-carat {
+    width: 15px;
+    height: 15px;
+    background-color: #409d69;
+  }
 `;
 
 const BookTile = ({ book, profile }) => {
   const { user } = useSelector((state) => state.session);
+
+  console.log("book", book);
+
+  const generateShelfVerb = () => {
+    if (book.Read) return <div className="shelf-verb">has read</div>;
+    if (book.ToRead) return <div className="shelf-verb">wants to read</div>;
+    if (book.CurrRead)
+      return <div className="shelf-verb">is currently reading</div>;
+  };
+
+  const generateShelfName = () => {
+    if (book.Read) return <div className="shelf-name">Read</div>;
+    if (book.ToRead) return <div className="shelf-name">To Read</div>;
+    if (book.CurrRead) return <div className="shelf-name">Curr Read</div>;
+  };
 
   return (
     <BookTileWrapper>
@@ -89,7 +130,7 @@ const BookTile = ({ book, profile }) => {
             <Link to="/profile">
               {user.firstName} {user.lastName}
             </Link>
-            <div className="shelf-verb">is currently reading</div>
+            {generateShelfVerb()}
           </div>
         ) : null}
 
@@ -101,16 +142,29 @@ const BookTile = ({ book, profile }) => {
         <div className="book-author">by {book.author}</div>
       </div>
       <div className="book-actions">
-        <div className="shelf-actions">
-          <div>
-            <img
-              className="check-mark"
-              alt="check-mark"
-              src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/checkmark.jpg"
-            />
+        {profile ? (
+          <div className="added-shelf-actions">
+            <div>
+              <img
+                className="check-mark"
+                alt="check-mark"
+                src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/checkmark.jpg"
+              />
+            </div>
+            {generateShelfName()}
           </div>
-          <div className="shelf-name">Currently Reading</div>
-        </div>
+        ) : (
+          <div className="unadded-shelf-actions">
+            <div className="unadded-shelf-name">To Read</div>
+            <button className="carat-button">
+              <img
+                className="down-carat"
+                alt="down-arrow"
+                src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/down-carat.png"
+              />
+            </button>
+          </div>
+        )}
         <div className="rate-text">Rate this book</div>
         <div className="stars">Rating stars</div>
       </div>
