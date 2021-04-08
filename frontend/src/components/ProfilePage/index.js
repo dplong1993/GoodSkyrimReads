@@ -165,7 +165,7 @@ const ProfilePage = () => {
     if (books.length === 0) return <div>No matching items</div>;
     return books.map((book, i) => {
       if (i > 2) return null;
-      return <BookTile key={book.id} book={book}></BookTile>;
+      return <BookTile key={book.id} book={book} profile={true}></BookTile>;
     });
   };
 

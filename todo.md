@@ -5,24 +5,29 @@
 [x] Get the authorized home page set up
 [x] Get the api routes set up
 [x] Get the book-info page set up
-[x] Get the my-books page set up
+[] Get the my-books page set up
   [x] Get my-books to working
   [x] Set up currently-reading shelf
   [x] Set up read shelf
   [x] Set up want to read shelf
+  [] Set up shelves pages to support scrolling
 [x] Get Heroku working
 [x] Work on the splash page
 [] Get the profile page set up
+  [x] Get all the user's info to show up on page
+  [x] Get book tiles set up for activity portion
+  [] Set up form to edit user info
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Get the books page set up
+  [] Show all books in the library for the user to click on.
 [x] Look for a tags and change them to Link or NavLinks
-[] Add more detail to the book info page
-[] Add more seed data to authorized home page
-[] Get the favoring books portion set up
-  [] Add new shelves
-  [] Edit shelves
-  [] Delete shelves
-[] Set up a review section
+[] Finish up book-detail page
+  [] Add more detail to the book info page by adding other books from the same series as scrolling bar at bottom of book-detail page
+  [] Add the ability to add a book to one of the default shelves
+  [] Add the ability to remove a book from a default shelf
+[] Add more seed data for books
+[] Set up a review section and set up a ratings section
+  [] Set up stars to rate book on profile page
+  [] Revisit Total user ratings and reviews on profile page once that feature is done.
 [x] Update title of each page
 [] Add favicon and about links as footer
-[] Set up shelves pages to support scrolling

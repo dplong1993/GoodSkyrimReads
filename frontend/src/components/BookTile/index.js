@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BookTileWrapper = styled.div`
   display: flex;
@@ -70,7 +71,9 @@ const BookTileWrapper = styled.div`
   }
 `;
 
-const BookTile = ({ book }) => {
+const BookTile = ({ book, profile }) => {
+  const { user } = useSelector((state) => state.session);
+
   return (
     <BookTileWrapper>
       <Link to={`/books/${book.id}`}>
@@ -81,10 +84,15 @@ const BookTile = ({ book }) => {
         ></img>
       </Link>
       <div className="book-info">
-        <div className="user-shelf">
-          <Link to="/profile">Dillon Long</Link>
-          <div className="shelf-verb">is currently reading</div>
-        </div>
+        {profile ? (
+          <div className="user-shelf">
+            <Link to="/profile">
+              {user.firstName} {user.lastName}
+            </Link>
+            <div className="shelf-verb">is currently reading</div>
+          </div>
+        ) : null}
+
         <div>
           <Link className="book-title" to={`/books/${book.id}`}>
             {book.title}
