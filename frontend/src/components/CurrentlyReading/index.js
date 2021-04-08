@@ -36,11 +36,14 @@ const CurrentlyReadingWrapper = styled.div`
 const CurrentlyReading = () => {
   const currBook = useSelector((state) => state.shelves.currRead);
 
+  console.log("CurrBooks", currBook.length);
+  if (currBook.length === undefined) return null;
+
   return (
     <CurrentlyReadingWrapper>
       <h3 className="title">CURRENTLY READING</h3>
       <div className="book-icon">
-        {currBook.length === 0 ? (
+        {currBook.length === undefined ? (
           <svg
             width="49"
             height="68"
@@ -56,7 +59,11 @@ const CurrentlyReading = () => {
           </svg>
         ) : (
           <>
-            <img class="curr-book-image" src={currBook[0].coverPhotoUrl} />
+            <img
+              alt="curr-book-img"
+              className="curr-book-image"
+              src={currBook[0].coverPhotoUrl}
+            />
             <div className="book-info">
               <Link className="book-title" to={`books/${currBook[0].id}`}>
                 {currBook[0].title}

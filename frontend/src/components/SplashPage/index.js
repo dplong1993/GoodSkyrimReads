@@ -57,7 +57,10 @@ const SplashPage = () => {
     <SplashPageWrapper>
       <h1>GoodSkryimReads</h1>
       <div>
-        <img src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/Logo-Skyrim.png" />
+        <img
+          alt="skyrim-logo"
+          src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/Logo-Skyrim.png"
+        />
       </div>
       <div className="text-holder">
         <div className="text-box">

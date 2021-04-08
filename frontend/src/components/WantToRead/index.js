@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-// Add info from the want to read table for the current user to state. Use that info to display
-// the first three book covers. Then have the a link go to the want to read shelf of the current
-// user.
-
 const WantToReadWrapper = styled.div`
   border-bottom: 1px solid #d8d8d8;
   margin-bottom: 16px;
@@ -16,9 +12,6 @@ const WantToReadWrapper = styled.div`
   .title {
     margin: 12px 0px 12px 8px;
     font-size: 14px;
-  }
-  .covers {
-    margin-left: 8px;
   }
   .shelf-link {
     margin-top: 12px;
@@ -37,11 +30,13 @@ const WantToReadWrapper = styled.div`
 const WantToRead = () => {
   const books = useSelector((state) => state.shelves.toRead);
 
+  if (books.length === undefined) return null;
+
   return (
     <WantToReadWrapper>
       <h3 className="title">WANT TO READ</h3>
       {books.length === 0 ? (
-        <div className="covers">
+        <div>
           <svg
             width="49"
             height="68"
@@ -88,7 +83,11 @@ const WantToRead = () => {
             if (i > 2) return null;
             return (
               <Link key={book.id} to={`/books/${book.id}`}>
-                <img className="book-img" src={book.coverPhotoUrl} />
+                <img
+                  alt="book-cover"
+                  className="book-img"
+                  src={book.coverPhotoUrl}
+                />
               </Link>
             );
           })}

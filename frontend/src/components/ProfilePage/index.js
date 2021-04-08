@@ -149,7 +149,10 @@ const ProfilePage = () => {
       <div className="main">
         <div className="profile-info">
           <div className="left-profile-info">
-            <img src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/userimage.png" />
+            <img
+              alt="user"
+              src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/userimage.png"
+            />
             <div className="ratings">Ratings</div>
             <div className="reviews">Reviews</div>
           </div>

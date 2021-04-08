@@ -15,7 +15,7 @@
 [] Get the profile page set up
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Get the books page set up
-[] Look for a tags and change them to Link or NavLinks
+[x] Look for a tags and change them to Link or NavLinks
 [] Add more detail to the book info page
 [] Add more seed data to authorized home page
 [] Get the favoring books portion set up
