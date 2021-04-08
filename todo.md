@@ -5,11 +5,11 @@
 [x] Get the authorized home page set up
 [x] Get the api routes set up
 [x] Get the book-info page set up
-[] Get the my-books page set up
+[x] Get the my-books page set up
   [x] Get my-books to working
-  [] Set up currently-reading shelf
-  [] Set up read shelf
-  [] Set up want to read shelf
+  [x] Set up currently-reading shelf
+  [x] Set up read shelf
+  [x] Set up want to read shelf
 [x] Get Heroku working
 [x] Work on the splash page
 [] Get the profile page set up

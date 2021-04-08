@@ -10,7 +10,7 @@ const TableRow = ({ book, shelf }) => {
             className="book-cover"
             src={book.coverPhotoUrl}
             alt="Cover"
-            style={{ width: "50px" }}
+            style={{ width: "50px", paddingTop: "20px" }}
           />
         </Link>
       </td>

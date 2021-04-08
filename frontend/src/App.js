@@ -10,6 +10,9 @@ import BookInfoPage from "./components/BookInfoPage";
 import MyBooksPage from "./components/MyBooksPage";
 import BooksPage from "./components/BooksPage";
 import ProfilePage from "./components/ProfilePage";
+import ReadShelf from "./components/ReadShelf";
+import CurrReadShelf from "./components/CurrReadShelf";
+import ToReadShelf from "./components/ToReadShelf";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +42,15 @@ function App() {
               </Route>
               <Route exact path="/my-books">
                 <MyBooksPage />
+              </Route>
+              <Route exact path="/my-books/read">
+                <ReadShelf />
+              </Route>
+              <Route exact path="/my-books/currentlyreading">
+                <CurrReadShelf />
+              </Route>
+              <Route exact path="/my-books/wanttoread">
+                <ToReadShelf />
               </Route>
               <Route exact path="/books">
                 <BooksPage />

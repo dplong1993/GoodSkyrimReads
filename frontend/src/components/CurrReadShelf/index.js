@@ -6,7 +6,7 @@ import TableRow from "../TableRow";
 
 //Bottom border of header of table not working atm.
 
-const MyBooksPageWrapper = styled.div`
+const CurrReadShelfWrapper = styled.div`
   margin: 0px auto;
   width: 100vw;
   height: 100vh;
@@ -22,6 +22,11 @@ const MyBooksPageWrapper = styled.div`
   }
   h1 {
     margin: 0;
+    display: flex;
+    align-items: flex-end;
+    font-size: 20px;
+    font-family: "Merriweather", Georgia, "Times New Roman", serif;
+    font-weight: bold;
   }
   .link-text {
     color: #00635d;
@@ -69,9 +74,16 @@ const MyBooksPageWrapper = styled.div`
     color: #999999;
     font-size: 14px;
   }
+
+  .shelf-name {
+    margin-left: 15px;
+    background-color: #eae9e6;
+    border-radius: 5px;
+    color: #382110;
+  }
 `;
 
-const MyBooksPage = () => {
+const CurrReadShelf = () => {
   const shelves = useSelector((state) => state.shelves);
 
   if (shelves.read.keys === undefined) return null;
@@ -79,12 +91,16 @@ const MyBooksPage = () => {
   if (shelves.currRead.keys === undefined) return null;
 
   return (
-    <MyBooksPageWrapper>
+    <CurrReadShelfWrapper>
       <div className="header">
         <h1>
           <Link className="link-text" to="/my-books">
             My Books
           </Link>
+          <div>:</div>
+          <div className="shelf-name">
+            Curr-Read ({shelves.currRead.length})
+          </div>
         </h1>
       </div>
       <div className="main">
@@ -150,27 +166,18 @@ const MyBooksPage = () => {
               </tr>
             </thead>
             <tbody>
-              {shelves.read.map((book) => {
-                return <TableRow key={book.id} shelf="read" book={book} />;
-              })}
-              {shelves.toRead.map((book) => {
-                return <TableRow key={book.id} shelf="to-read" book={book} />;
-              })}
               {shelves.currRead.map((book) => {
                 return <TableRow key={book.id} shelf="curr-read" book={book} />;
               })}
             </tbody>
           </table>
-          {shelves.read.length +
-            shelves.toRead.length +
-            shelves.currRead.length ===
-          0 ? (
+          {shelves.read.length === 0 ? (
             <div className="no-match">No matching items</div>
           ) : null}
         </div>
       </div>
-    </MyBooksPageWrapper>
+    </CurrReadShelfWrapper>
   );
 };
 
-export default MyBooksPage;
+export default CurrReadShelf;
