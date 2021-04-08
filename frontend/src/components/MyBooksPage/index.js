@@ -9,6 +9,7 @@ import TableRow from "./TableRow";
 const MyBooksPageWrapper = styled.div`
   margin: 0px auto;
   width: 100vw;
+  height: 100vh;
   background: #f9f7f4;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   .header {
@@ -62,19 +63,21 @@ const MyBooksPageWrapper = styled.div`
     font-weight: bold;
     text-align: left;
   }
-  .cover {
-    width: 50px;
-    margin: 0;
-  }
-  .title {
-    width: 25%;
-  }
-  .author {
+
+  .no-match {
+    padding: 20px;
+    text-align: center;
+    color: #999999;
+    font-size: 14px;
   }
 `;
 
 const MyBooksPage = () => {
   const shelves = useSelector((state) => state.shelves);
+
+  if (shelves.read.keys === undefined) return null;
+  if (shelves.toRead.keys === undefined) return null;
+  if (shelves.currRead.keys === undefined) return null;
 
   return (
     <MyBooksPageWrapper>
@@ -149,16 +152,22 @@ const MyBooksPage = () => {
             </thead>
             <tbody>
               {shelves.read.map((book) => {
-                return <TableRow key={book.id} book={book} />;
+                return <TableRow key={book.id} shelf="read" book={book} />;
               })}
               {shelves.toRead.map((book) => {
-                return <TableRow key={book.id} book={book} />;
+                return <TableRow key={book.id} shelf="to-read" book={book} />;
               })}
               {shelves.currRead.map((book) => {
-                return <TableRow key={book.id} book={book} />;
+                return <TableRow key={book.id} shelf="curr-read" book={book} />;
               })}
             </tbody>
           </table>
+          {shelves.read.length +
+            shelves.toRead.length +
+            shelves.currRead.length ===
+          0 ? (
+            <div className="no-match">No matching items</div>
+          ) : null}
         </div>
       </div>
     </MyBooksPageWrapper>

@@ -43,7 +43,7 @@ const CurrentlyReading = () => {
     <CurrentlyReadingWrapper>
       <h3 className="title">CURRENTLY READING</h3>
       <div className="book-icon">
-        {currBook.length === undefined ? (
+        {currBook.length === 0 ? (
           <svg
             width="49"
             height="68"

@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TableRow = ({ book }) => {
+const TableRow = ({ book, shelf }) => {
   return (
     <tr>
       <td>
-        <img src={book.coverPhotoUrl} alt="Cover" />
+        <Link to={`/books/${book.id}`}>
+          <img
+            className="book-cover"
+            src={book.coverPhotoUrl}
+            alt="Cover"
+            style={{ width: "50px" }}
+          />
+        </Link>
       </td>
       <td>
         <div>{book.title}</div>
@@ -20,7 +27,7 @@ const TableRow = ({ book }) => {
         <div>x out of 5 stars</div>
       </td>
       <td>
-        <div>to-read</div>
+        <div>{shelf}</div>
       </td>
       <td>
         <div>
