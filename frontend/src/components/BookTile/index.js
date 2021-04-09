@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addNewBook } from "../../store/shelves";
 
 const BookTileWrapper = styled.div`
   display: flex;
@@ -88,6 +89,11 @@ const BookTileWrapper = styled.div`
     background-color: #409d69;
     border: none;
     border-left: 1px solid grey;
+    cursor: pointer;
+  }
+
+  .carat-button: focus {
+    outline: none;
   }
 
   .down-carat {
@@ -95,12 +101,34 @@ const BookTileWrapper = styled.div`
     height: 15px;
     background-color: #409d69;
   }
+
+  .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+  }
+
+  .dropdown-button {
+    background-color: white;
+    border: none;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 3px;
+  }
+
+  .dropdown-button:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown-button:focus {
+    outline: none;
+  }
 `;
 
 const BookTile = ({ book, profile }) => {
   const { user } = useSelector((state) => state.session);
-
-  console.log("book", book);
+  const [showDropDown, setShowDropDown] = useState(false);
+  const dispatch = useDispatch();
 
   const generateShelfVerb = () => {
     if (book.Read) return <div className="shelf-verb">has read</div>;
@@ -113,6 +141,19 @@ const BookTile = ({ book, profile }) => {
     if (book.Read) return <div className="shelf-name">Read</div>;
     if (book.ToRead) return <div className="shelf-name">To Read</div>;
     if (book.CurrRead) return <div className="shelf-name">Curr Read</div>;
+  };
+
+  const addBookToShelf = (e) => {
+    e.preventDefault();
+    if (e.target.innerText === "Read") {
+      dispatch(addNewBook(book, user.id, e.target.innerText));
+    }
+    if (e.target.innerText === "ToRead") {
+      console.log("IN TOREAD");
+    }
+    if (e.target.innerText === "CurrRead") {
+      console.log("IN CURRREAD");
+    }
   };
 
   return (
@@ -154,16 +195,39 @@ const BookTile = ({ book, profile }) => {
             {generateShelfName()}
           </div>
         ) : (
-          <div className="unadded-shelf-actions">
-            <div className="unadded-shelf-name">To Read</div>
-            <button className="carat-button">
-              <img
-                className="down-carat"
-                alt="down-arrow"
-                src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/down-carat.png"
-              />
-            </button>
-          </div>
+          <>
+            <div className="unadded-shelf-actions">
+              <div className="unadded-shelf-name">To Read</div>
+              <button
+                onMouseEnter={() => {
+                  setShowDropDown(true);
+                  //May cause problems if I don't clear
+                  setTimeout(() => setShowDropDown(false), 3000);
+                }}
+                onClick={() => setShowDropDown(false)}
+                className="carat-button"
+              >
+                <img
+                  className="down-carat"
+                  alt="down-arrow"
+                  src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/down-carat.png"
+                />
+              </button>
+            </div>
+            {showDropDown ? (
+              <div className="dropdown-menu hide">
+                <button onClick={addBookToShelf} className="dropdown-button">
+                  Read
+                </button>
+                <button onClick={addBookToShelf} className="dropdown-button">
+                  CurrRead
+                </button>
+                <button onClick={addBookToShelf} className="dropdown-button">
+                  ToRead
+                </button>
+              </div>
+            ) : null}
+          </>
         )}
         <div className="rate-text">Rate this book</div>
         <div className="stars">Rating stars</div>
