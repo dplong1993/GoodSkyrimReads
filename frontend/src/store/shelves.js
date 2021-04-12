@@ -1,11 +1,11 @@
 import { csrfFetch } from "./csrf";
 
-const SET_BOOKS = "goodskyrimreads/shelves/SET_BOOKS";
+const SET_SHELVE_BOOKS = "goodskyrimreads/shelves/SET_SHELVE_BOOKS";
 const ADD_BOOK = "goodskyrimreads/shelves/ADD_BOOK";
 
-export const setBooks = (books) => {
+export const setShelveBooks = (books) => {
   return {
-    type: SET_BOOKS,
+    type: SET_SHELVE_BOOKS,
     books,
   };
 };
@@ -29,7 +29,7 @@ export const loadBooks = (id) => {
         toRead: user.ToReadBooks,
         currRead: user.CurrReadBooks,
       };
-      dispatch(setBooks(shelves));
+      dispatch(setShelveBooks(shelves));
     } else {
       const error = await response.json();
       window.alert(error.message);
@@ -52,7 +52,7 @@ export const addNewBook = (book, userId, shelfName) => {
     if (response.ok) {
       const entry = response.json();
       console.log("Entry", entry);
-      dispatch(setBooks(book, shelfName));
+      dispatch(addBook([book], shelfName));
     } else {
       const error = await response.json();
       window.alert(error.message);
@@ -61,11 +61,11 @@ export const addNewBook = (book, userId, shelfName) => {
 };
 
 export default function reducer(
-  state = { read: {}, toRead: {}, currRead: {} },
+  state = { read: [], toRead: [], currRead: [] },
   action
 ) {
   switch (action.type) {
-    case SET_BOOKS:
+    case SET_SHELVE_BOOKS:
       return {
         ...state,
         read: action.books.read,
@@ -73,7 +73,25 @@ export default function reducer(
         currRead: action.books.currRead,
       };
     case ADD_BOOK:
-      return state;
+      switch (action.shelfName) {
+        case "Read":
+          return {
+            ...state,
+            read: [...state.read, ...action.book],
+          };
+        case "ToRead":
+          return {
+            ...state,
+            toRead: [...state.toRead, ...action.book],
+          };
+        case "CurrRead":
+          return {
+            ...state,
+            currRead: [...state.currRead, ...action.book],
+          };
+        default:
+          return state;
+      }
     default:
       return state;
   }

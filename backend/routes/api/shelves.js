@@ -36,4 +36,34 @@ router.post(
   })
 );
 
+router.post(
+  "/currread",
+  asyncHandler(async function (req, res) {
+    const { bookId, userId } = req.body;
+    console.log("IN SHELVES AAAAAAAAAAAAAAAAAAAAAAAAA");
+    const newShelfEntry = await CurrRead.newEntry({
+      bookId,
+      userId,
+    });
+    return res.json({
+      newShelfEntry,
+    });
+  })
+);
+
+router.post(
+  "/toread",
+  asyncHandler(async function (req, res) {
+    const { bookId, userId } = req.body;
+    console.log("IN SHELVES AAAAAAAAAAAAAAAAAAAAAAAAA");
+    const newShelfEntry = await ToRead.newEntry({
+      bookId,
+      userId,
+    });
+    return res.json({
+      newShelfEntry,
+    });
+  })
+);
+
 module.exports = router;

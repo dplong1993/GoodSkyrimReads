@@ -61,9 +61,8 @@ const BookTileWrapper = styled.div`
   .unadded-shelf-actions {
     display: flex;
     justify-content: space-between;
-    background-color: #409d69;
-    border: 1px solid #dddddd;
-    width: 125px;
+    margin-right: 200px;
+    width: 300px;
   }
 
   .check-mark {
@@ -87,42 +86,29 @@ const BookTileWrapper = styled.div`
     font-size: 11px;
   }
 
-  .carat-button {
-    background-color: #409d69;
-    border: none;
-    border-left: 1px solid grey;
-    cursor: pointer;
-  }
-
-  .carat-button: focus {
-    outline: none;
-  }
-
-  .down-carat {
-    width: 15px;
-    height: 15px;
-    background-color: #409d69;
-  }
-
   .dropdown-menu {
     display: flex;
     flex-direction: column;
     width: 125px;
   }
 
-  .dropdown-button {
-    background-color: white;
+  .add-button {
+    background-color: #409d69;
     border: none;
-    text-align: left;
-    padding-left: 10px;
-    padding-bottom: 3px;
+    text-align: center;
+    margin-left: 20px;
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    border: 1px solid #dddddd;
+    cursor: pointer;
   }
 
-  .dropdown-button:hover {
+  .add-button:hover {
     background-color: #f1f1f1;
   }
 
-  .dropdown-button:focus {
+  .add-button:focus {
     outline: none;
   }
 `;
@@ -133,6 +119,7 @@ const BookTile = ({ book, profile }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [shelfVerb, setShelfVerb] = useState("");
   const [shelfName, setShelfName] = useState("");
+  console.log(book);
 
   const generateShelfInfo = () => {
     if (book.Read) {
@@ -156,14 +143,14 @@ const BookTile = ({ book, profile }) => {
 
   const addBookToShelf = (e) => {
     e.preventDefault();
-    if (e.target.innerText === "Read") {
-      dispatch(addNewBook(book, user.id, e.target.innerText));
+    if (e.target.id === "Read") {
+      dispatch(addNewBook(book, user.id, e.target.id));
     }
-    if (e.target.innerText === "ToRead") {
-      console.log("IN TOREAD");
+    if (e.target.id === "ToRead") {
+      dispatch(addNewBook(book, user.id, e.target.id));
     }
-    if (e.target.innerText === "CurrRead") {
-      console.log("IN CURRREAD");
+    if (e.target.id === "CurrRead") {
+      dispatch(addNewBook(book, user.id, e.target.id));
     }
   };
 
@@ -209,40 +196,26 @@ const BookTile = ({ book, profile }) => {
         ) : (
           <>
             <div className="unadded-shelf-actions">
-              <div className="unadded-shelf-name">To Read</div>
+              <button id="Read" onClick={addBookToShelf} className="add-button">
+                Add to Read Shelf
+              </button>
               <button
-                onMouseEnter={() => {
-                  setShowDropDown(true);
-                  //May cause problems if I don't clear
-                  setTimeout(() => setShowDropDown(false), 3000);
-                }}
-                onClick={() => setShowDropDown(false)}
-                className="carat-button"
+                id="CurrRead"
+                onClick={addBookToShelf}
+                className="add-button"
               >
-                <img
-                  className="down-carat"
-                  alt="down-arrow"
-                  src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/down-carat.png"
-                />
+                Add to CurrRead Shelf
+              </button>
+              <button
+                id="ToRead"
+                onClick={addBookToShelf}
+                className="add-button"
+              >
+                Add to ToRead Shelf
               </button>
             </div>
-            {showDropDown ? (
-              <div className="dropdown-menu hide">
-                <button onClick={addBookToShelf} className="dropdown-button">
-                  Read
-                </button>
-                <button onClick={addBookToShelf} className="dropdown-button">
-                  CurrRead
-                </button>
-                <button onClick={addBookToShelf} className="dropdown-button">
-                  ToRead
-                </button>
-              </div>
-            ) : null}
           </>
         )}
-        <div className="rate-text">Rate this book</div>
-        <div className="stars">Rating stars</div>
       </div>
     );
   };

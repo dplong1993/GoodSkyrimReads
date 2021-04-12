@@ -40,5 +40,15 @@ module.exports = (sequelize, DataTypes) => {
       bookId: this.bookId,
     };
   };
+
+  ToRead.newEntry = async function ({ bookId, userId }) {
+    const newEntry = await ToRead.create({
+      bookId,
+      userId,
+      shelfName: "to-read",
+    });
+    return await ToRead.findByPk(newEntry.id);
+  };
+
   return ToRead;
 };
