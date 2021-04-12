@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addNewBook } from "../../store/shelves";
 
 const BookTileWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 15px;
-  border-top: 1px solid #e8e8e8;
-  justify-content: space-between;
+  .holder {
+    display: flex;
+    align-items: center;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
+    border-top: 1px solid #e8e8e8;
+    justify-content: space-between;
+  }
 
   .book-cover {
     width: 65px;
@@ -127,21 +129,30 @@ const BookTileWrapper = styled.div`
 
 const BookTile = ({ book, profile }) => {
   const { user } = useSelector((state) => state.session);
-  const [showDropDown, setShowDropDown] = useState(false);
   const dispatch = useDispatch();
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [shelfVerb, setShelfVerb] = useState("");
+  const [shelfName, setShelfName] = useState("");
 
-  const generateShelfVerb = () => {
-    if (book.Read) return <div className="shelf-verb">has read</div>;
-    if (book.ToRead) return <div className="shelf-verb">wants to read</div>;
-    if (book.CurrRead)
-      return <div className="shelf-verb">is currently reading</div>;
+  const generateShelfInfo = () => {
+    if (book.Read) {
+      setShelfVerb("has read");
+      setShelfName("Read");
+    }
+    if (book.ToRead) {
+      setShelfVerb("wants to read");
+      setShelfName("To Read");
+    }
+    if (book.CurrRead) {
+      setShelfVerb("is currently reading");
+      setShelfName("Curr Read");
+    }
+    return;
   };
 
-  const generateShelfName = () => {
-    if (book.Read) return <div className="shelf-name">Read</div>;
-    if (book.ToRead) return <div className="shelf-name">To Read</div>;
-    if (book.CurrRead) return <div className="shelf-name">Curr Read</div>;
-  };
+  useEffect(() => {
+    generateShelfInfo();
+  }, []);
 
   const addBookToShelf = (e) => {
     e.preventDefault();
@@ -156,8 +167,8 @@ const BookTile = ({ book, profile }) => {
     }
   };
 
-  return (
-    <BookTileWrapper>
+  const generateBookCover = () => {
+    return (
       <Link to={`/books/${book.id}`}>
         <img
           className="book-cover"
@@ -165,13 +176,18 @@ const BookTile = ({ book, profile }) => {
           src={book.coverPhotoUrl}
         ></img>
       </Link>
+    );
+  };
+
+  const generateBookInfo = () => {
+    return (
       <div className="book-info">
         {profile ? (
           <div className="user-shelf">
             <Link to="/profile">
               {user.firstName} {user.lastName}
             </Link>
-            {generateShelfVerb()}
+            <div className="shelf-verb">{shelfVerb}</div>
           </div>
         ) : null}
 
@@ -182,18 +198,14 @@ const BookTile = ({ book, profile }) => {
         </div>
         <div className="book-author">by {book.author}</div>
       </div>
+    );
+  };
+
+  const generateBookActions = () => {
+    return (
       <div className="book-actions">
-        {profile ? (
-          <div className="added-shelf-actions">
-            <div>
-              <img
-                className="check-mark"
-                alt="check-mark"
-                src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/checkmark.jpg"
-              />
-            </div>
-            {generateShelfName()}
-          </div>
+        {profile || shelfName != "" ? (
+          generateAddedShelf()
         ) : (
           <>
             <div className="unadded-shelf-actions">
@@ -232,6 +244,38 @@ const BookTile = ({ book, profile }) => {
         <div className="rate-text">Rate this book</div>
         <div className="stars">Rating stars</div>
       </div>
+    );
+  };
+
+  const generateAddedShelf = () => {
+    return (
+      <div className="added-shelf-actions">
+        <div>
+          <img
+            className="check-mark"
+            alt="check-mark"
+            src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/checkmark.jpg"
+          />
+        </div>
+        <div className="shelf-name">{shelfName}</div>
+      </div>
+    );
+  };
+
+  return (
+    <BookTileWrapper>
+      {book === "none" ? (
+        <div>
+          All the books in the library are in your shelves! Congrats you big
+          reader.
+        </div>
+      ) : (
+        <div className="holder">
+          <>{generateBookCover()}</>
+          <>{generateBookInfo()}</>
+          <>{generateBookActions()}</>
+        </div>
+      )}
     </BookTileWrapper>
   );
 };

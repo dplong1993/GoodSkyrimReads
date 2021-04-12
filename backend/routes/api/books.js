@@ -1,7 +1,8 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const { Op } = require("sequelize");
 const { check, validationResult } = require("express-validator");
-const { Book } = require("../../db/models");
+const { Book, Read, CurrRead, ToRead } = require("../../db/models");
 
 const router = express.Router();
 
@@ -32,6 +33,20 @@ router.get(
     res.json(books);
   })
 );
+
+// router.get(
+//   "/users/:id",
+//   asyncHandler(async function (_req, res) {
+//     const books = await Book.findAll({
+//       include: [
+//         { model: Read, where: { userId: { [Op.eq]: req.params.id } } },
+//         { model: CurrRead },
+//         { model: ToRead },
+//       ],
+//     });
+//     res.json(books);
+//   })
+// );
 
 router.get(
   "/:id",

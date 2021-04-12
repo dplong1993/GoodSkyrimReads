@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadBooks } from "../../store/books";
 import BookTile from "../BookTile";
@@ -18,10 +18,19 @@ const BooksPageWrapper = styled.div`
 const BooksPage = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books);
+  const shelvesObject = useSelector((state) => state.shelves);
+  const [booksToShow, setBooksToShow] = useState([]);
 
   useEffect(() => {
     dispatch(loadBooks());
   }, [dispatch]);
+
+  useEffect(() => {
+    let values = Object.values(shelvesObject);
+    values = [...values[0], ...values[1], ...values[2]];
+    const titles = values.map((book) => book.title);
+    setBooksToShow(books.filter((book) => !titles.includes(book.title)));
+  }, [books]);
 
   if (!books) {
     return null;
@@ -29,9 +38,13 @@ const BooksPage = () => {
   return (
     <BooksPageWrapper>
       <h1>GoodSkyrimReads Library</h1>
-      {books.map((book) => (
-        <BookTile book={book} profile={false}></BookTile>
-      ))}
+      {booksToShow.length > 0 ? (
+        booksToShow.map((book) => (
+          <BookTile book={book} profile={false}></BookTile>
+        ))
+      ) : (
+        <BookTile book="none" profile={false}></BookTile>
+      )}
       ;
     </BooksPageWrapper>
   );
