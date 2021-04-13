@@ -88,16 +88,25 @@ const BookInfoPageWrapper = styled.div`
     width: 970px;
   }
 
-  .add-button {
-    width: 150px;
-    height: 75px;
+  .delete-button {
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .add-button,
   .delete-button {
     width: 200px;
     height: 75px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #dad3c8;
+    font-size: 15px;
+    font-weight: bold;
+    color: #382110;
+    border-color: #382110;
+  }
+
+  .add-button:hover,
+  .delete-button:hover {
+    background-color: #e8ddcb;
   }
 `;
 
