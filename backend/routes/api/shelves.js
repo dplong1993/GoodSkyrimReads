@@ -25,7 +25,6 @@ router.post(
   "/read",
   asyncHandler(async function (req, res) {
     const { bookId, userId } = req.body;
-    console.log("IN SHELVES AAAAAAAAAAAAAAAAAAAAAAAAA");
     const newShelfEntry = await Read.newEntry({
       bookId,
       userId,
@@ -40,7 +39,6 @@ router.post(
   "/currread",
   asyncHandler(async function (req, res) {
     const { bookId, userId } = req.body;
-    console.log("IN SHELVES AAAAAAAAAAAAAAAAAAAAAAAAA");
     const newShelfEntry = await CurrRead.newEntry({
       bookId,
       userId,
@@ -55,7 +53,6 @@ router.post(
   "/toread",
   asyncHandler(async function (req, res) {
     const { bookId, userId } = req.body;
-    console.log("IN SHELVES AAAAAAAAAAAAAAAAAAAAAAAAA");
     const newShelfEntry = await ToRead.newEntry({
       bookId,
       userId,
