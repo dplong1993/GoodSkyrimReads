@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { loadBook } from "../../store/currentBook";
 import styled from "styled-components";
+import { loadBook } from "../../store/currentBook";
+import { addNewBook, deleteBookFromShelf } from "../../store/shelves";
 
 const BookInfoPageWrapper = styled.div`
   margin: 0px auto;
@@ -103,6 +104,7 @@ const BookInfoPageWrapper = styled.div`
 const BookInfoPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.session);
   const book = useSelector((state) => state.currentBook);
   const shelves = useSelector((state) => state.shelves);
   const [showAddButton, setShowAddButton] = useState(true);
@@ -113,6 +115,8 @@ const BookInfoPage = () => {
   }, [id, dispatch]);
 
   useEffect(() => {
+    setShowAddButton(true);
+    setShelfName("");
     for (let key in shelves) {
       for (let i = 0; i < shelves[key].length; i++) {
         if (book.title === shelves[key][i].title) {
@@ -128,12 +132,26 @@ const BookInfoPage = () => {
     return null;
   }
 
+  const addBookToShelf = (e) => {
+    dispatch(addNewBook(book, user.id, e.target.id));
+  };
+
+  const deleteBook = () => {
+    dispatch(deleteBookFromShelf(book, user.id, shelfName));
+  };
+
   const generateAddButtons = () => {
     return (
       <>
-        <button className="add-button">Add to Read Shelf</button>
-        <button className="add-button">Add to ToRead Shelf</button>
-        <button className="add-button">Add to CurrRead Shelf</button>
+        <button id="Read" onClick={addBookToShelf} className="add-button">
+          Add to Read Shelf
+        </button>
+        <button id="ToRead" onClick={addBookToShelf} className="add-button">
+          Add to ToRead Shelf
+        </button>
+        <button id="CurrRead" onClick={addBookToShelf} className="add-button">
+          Add to CurrRead Shelf
+        </button>
       </>
     );
   };
@@ -162,7 +180,7 @@ const BookInfoPage = () => {
         {showAddButton ? (
           generateAddButtons()
         ) : (
-          <button className="delete-button">
+          <button onClick={deleteBook} className="delete-button">
             Delete from {shelfName} Shelf
           </button>
         )}

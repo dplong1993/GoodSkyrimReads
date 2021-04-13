@@ -50,5 +50,15 @@ module.exports = (sequelize, DataTypes) => {
     return await CurrRead.findByPk(newEntry.id);
   };
 
+  CurrRead.deleteEntry = async function ({ bookId, userId }) {
+    const deletedEntry = await CurrRead.destroy({
+      where: {
+        userId,
+        bookId,
+      },
+    });
+    return deletedEntry;
+  };
+
   return CurrRead;
 };

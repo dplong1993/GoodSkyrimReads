@@ -63,4 +63,54 @@ router.post(
   })
 );
 
+//Highlight this in talking points about project. Used a hyphen separated id to represent an entity
+//that needed two identifying parameters
+router.delete(
+  "/read/:id",
+  asyncHandler(async function (req, res) {
+    const [userId, bookId] = req.params.id
+      .split("-")
+      .map((id) => (id = Number(id)));
+    const deleteShelfEntry = await Read.deleteEntry({
+      bookId,
+      userId,
+    });
+    return res.json({
+      deleteShelfEntry,
+    });
+  })
+);
+
+router.delete(
+  "/currread/:id",
+  asyncHandler(async function (req, res) {
+    const [userId, bookId] = req.params.id
+      .split("-")
+      .map((id) => (id = Number(id)));
+    const deleteShelfEntry = await CurrRead.deleteEntry({
+      bookId,
+      userId,
+    });
+    return res.json({
+      deleteShelfEntry,
+    });
+  })
+);
+
+router.delete(
+  "/toread/:id",
+  asyncHandler(async function (req, res) {
+    const [userId, bookId] = req.params.id
+      .split("-")
+      .map((id) => (id = Number(id)));
+    const deleteShelfEntry = await ToRead.deleteEntry({
+      bookId,
+      userId,
+    });
+    return res.json({
+      deleteShelfEntry,
+    });
+  })
+);
+
 module.exports = router;

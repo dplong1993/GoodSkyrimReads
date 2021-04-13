@@ -50,5 +50,15 @@ module.exports = (sequelize, DataTypes) => {
     return await ToRead.findByPk(newEntry.id);
   };
 
+  ToRead.deleteEntry = async function ({ bookId, userId }) {
+    const deletedEntry = await ToRead.destroy({
+      where: {
+        userId,
+        bookId,
+      },
+    });
+    return deletedEntry;
+  };
+
   return ToRead;
 };
