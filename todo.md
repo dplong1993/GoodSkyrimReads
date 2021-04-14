@@ -19,12 +19,13 @@
   [] Set up form to edit user info
   [] Set up profile page with the ability to delete account if user is not demo user
 [] Get the books page set up
-  [] Show all books in the library for the user to click on.
+  [x] Show all books in the library for the user to click on.
+  [] Style the message for when there are no more books in the library.
 [x] Look for a tags and change them to Link or NavLinks
 [] Finish up book-detail page
   [] Add more detail to the book info page by adding other books from the same series as scrolling bar at bottom of book-detail page
-  [] Add the ability to add a book to one of the default shelves
-  [] Add the ability to remove a book from a default shelf
+  [x] Add the ability to add a book to one of the default shelves
+  [x] Add the ability to remove a book from a default shelf
 [] Add more seed data for books
 [] Set up a review section and set up a ratings section
   [] Set up stars to rate book on profile page
