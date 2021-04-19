@@ -28,9 +28,7 @@ const BooksPage = () => {
 
   useEffect(() => {
     let values = Object.values(shelvesObject);
-    console.log("Values 1", values);
     values = [...values[0], ...values[1], ...values[2]];
-    console.log("Values 2", values);
     const titles = values.map((book) => book.title);
     setBooksToShow(books.filter((book) => !titles.includes(book.title)));
   }, [shelvesObject, books]);

@@ -134,20 +134,24 @@ const BookTileWrapper = styled.div`
 
 const BookTile = ({ book, profile }) => {
   const { user } = useSelector((state) => state.session);
+  let { currRead, read, toRead } = useSelector((state) => state.shelves);
   const dispatch = useDispatch();
   const [shelfVerb, setShelfVerb] = useState("");
   const [shelfName, setShelfName] = useState("");
 
   const generateShelfInfo = () => {
-    if (book.Read) {
+    read = read.map((bookObj) => bookObj.title);
+    currRead = currRead.map((bookObj) => bookObj.title);
+    toRead = toRead.map((bookObj) => bookObj.title);
+    if (read.includes(book.title)) {
       setShelfVerb("has read");
       setShelfName("Read");
     }
-    if (book.ToRead) {
+    if (toRead.includes(book.title)) {
       setShelfVerb("wants to read");
       setShelfName("To Read");
     }
-    if (book.CurrRead) {
+    if (currRead.includes(book.title)) {
       setShelfVerb("is currently reading");
       setShelfName("Curr Read");
     }

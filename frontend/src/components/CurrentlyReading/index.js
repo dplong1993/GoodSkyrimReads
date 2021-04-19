@@ -36,7 +36,6 @@ const CurrentlyReadingWrapper = styled.div`
 const CurrentlyReading = () => {
   const currBook = useSelector((state) => state.shelves.currRead);
 
-  console.log("CurrBooks", currBook.length);
   if (currBook.length === undefined) return null;
 
   return (
