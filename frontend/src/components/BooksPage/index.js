@@ -12,6 +12,7 @@ const BooksPageWrapper = styled.div`
     margin: 0;
     padding: 20px;
     text-align: center;
+    color: #382110;
   }
 `;
 

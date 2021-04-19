@@ -111,6 +111,25 @@ const BookTileWrapper = styled.div`
   .add-button:focus {
     outline: none;
   }
+
+  .default {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .all-books-read {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #382110;
+  }
+
+  .celebration {
+    padding-top: 60px;
+    margin: auto;
+    width: 800px;
+    height: 500px;
+  }
 `;
 
 const BookTile = ({ book, profile }) => {
@@ -238,9 +257,16 @@ const BookTile = ({ book, profile }) => {
   return (
     <BookTileWrapper>
       {book === "none" ? (
-        <div>
-          All the books in the library are in your shelves! Congrats you big
-          reader.
+        <div className="default">
+          <div className="all-books-read">
+            All the books in the library are in your shelves! Congrats you big
+            reader.
+          </div>
+          <img
+            className="celebration"
+            alt="celebration"
+            src="https://goodskyrimreads.s3.us-east-2.amazonaws.com/celebration-kiddush-220x220.jpg"
+          />
         </div>
       ) : (
         <div className="holder">
