@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import SignupForm from "./SignupForm";
+import EditProfileForm from "./EditProfileForm.js";
 import styled from "styled-components";
 
-const SignupFormModalWrapper = styled.div`
+const EditProfileFormModalWrapper = styled.div`
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 
   .button {
@@ -28,23 +28,23 @@ const SignupFormModalWrapper = styled.div`
   }
 `;
 
-function SignupFormModal() {
+function EditProfileFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <SignupFormModalWrapper>
+      <EditProfileFormModalWrapper>
         <button className="button" onClick={() => setShowModal(true)}>
-          Signup
+          Edit Profile
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <SignupForm />
+            <EditProfileForm setShowModal={setShowModal} />
           </Modal>
         )}
-      </SignupFormModalWrapper>
+      </EditProfileFormModalWrapper>
     </>
   );
 }
 
-export default SignupFormModal;
+export default EditProfileFormModal;

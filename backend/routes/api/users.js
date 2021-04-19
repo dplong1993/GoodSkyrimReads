@@ -44,12 +44,44 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+const validateEdit = [
+  check("email")
+    .exists({ checkFalsy: true })
+    .isEmail()
+    .withMessage("Please provide a valid email."),
+  check("email")
+    .isLength({ min: 3, max: 256 })
+    .withMessage(
+      "Please provide an email with at least 3 characters and no more than 256 characters."
+    ),
+  check("username")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 3, max: 30 })
+    .withMessage(
+      "Please provide a username with at least 3 characters and no more than 30 characters."
+    ),
+  check("username").not().isEmail().withMessage("Username cannot be an email."),
+  check("lastName")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 2, max: 30 })
+    .withMessage(
+      "Please provide a Last Name with at least 2 characters and no more than 30 characters."
+    ),
+  check("firstName")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 2, max: 30 })
+    .withMessage(
+      "Please provide a First Name with at least 2 characters and no more than 30 characters."
+    ),
+  handleValidationErrors,
+];
+
 // Sign up
 router.post(
-  "",
+  "/",
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username, lastName, firstName } = req.body;
+    const { email, username, lastName, firstName } = req.body;
     const user = await User.signup({
       email,
       username,
@@ -66,6 +98,27 @@ router.post(
   })
 );
 
+// Edit profile
+router.patch(
+  "/",
+  validateEdit,
+  asyncHandler(async (req, res) => {
+    const { id, email, username, lastName, firstName } = req.body;
+    const user = await User.updateProfile({
+      email,
+      username,
+      lastName,
+      firstName,
+      id,
+    });
+
+    return res.json({
+      user,
+    });
+  })
+);
+
+// Get all bookshelves associated with user
 router.get(
   "/:id/bookshelves",
   asyncHandler(async function (req, res, next) {

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import BookTile from "../BookTile";
+import EditProfileFormModal from "./EditProfileModal";
 
 const ProfilePageWrapper = styled.div`
   width: 100vw;
@@ -87,11 +88,7 @@ const ProfilePageWrapper = styled.div`
     color: #382110;
   }
 
-  .location {
-    margin-left: 50px;
-  }
-
-  .joined-date {
+  .user-info-text {
     margin-left: 50px;
   }
 
@@ -191,16 +188,26 @@ const ProfilePage = () => {
               <div className="name">
                 {user.firstName} {user.lastName}
               </div>
-              <div className="edit-user">Link to edit profile</div>
+              <div className="edit-user">
+                <EditProfileFormModal />
+              </div>
             </div>
             <div className="detail-holder">
               <div className="container">
+                <div className="label-text">Username</div>
+                <div className="user-info-text">{user.username}</div>
+              </div>
+              <div className="container">
+                <div className="label-text">Email</div>
+                <div className="user-info-text">{user.email}</div>
+              </div>
+              <div className="container">
                 <div className="label-text">Details</div>
-                <div className="location">The Internet, Earth (0 mi)</div>
+                <div className="user-info-text">The Internet, Earth (0 mi)</div>
               </div>
               <div className="container">
                 <div className="label-text">Activity</div>
-                <div className="joined-date">
+                <div className="user-info-text">
                   Joined in {user.createdAt.slice(0, 7)}
                 </div>
               </div>

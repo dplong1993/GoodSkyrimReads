@@ -141,5 +141,23 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope("currentUser").findByPk(user.id);
   };
+
+  User.updateProfile = async function ({
+    username,
+    email,
+    lastName,
+    firstName,
+    id,
+  }) {
+    const user = await User.update(
+      { lastName, username, email, firstName },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+    return await User.scope("currentUser").findByPk(id);
+  };
   return User;
 };

@@ -116,7 +116,6 @@ const BookTileWrapper = styled.div`
 const BookTile = ({ book, profile }) => {
   const { user } = useSelector((state) => state.session);
   const dispatch = useDispatch();
-  const [showDropDown, setShowDropDown] = useState(false);
   const [shelfVerb, setShelfVerb] = useState("");
   const [shelfName, setShelfName] = useState("");
   console.log(book);
@@ -139,6 +138,7 @@ const BookTile = ({ book, profile }) => {
 
   useEffect(() => {
     generateShelfInfo();
+    // eslint-disable-next-line
   }, []);
 
   const addBookToShelf = (e) => {
@@ -191,7 +191,7 @@ const BookTile = ({ book, profile }) => {
   const generateBookActions = () => {
     return (
       <div className="book-actions">
-        {profile || shelfName != "" ? (
+        {profile || shelfName !== "" ? (
           generateAddedShelf()
         ) : (
           <>
