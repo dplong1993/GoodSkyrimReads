@@ -7,24 +7,18 @@ const EditProfileFormModalWrapper = styled.div`
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 
   .button {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 11px;
     appearance: none;
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
-    color: #382110;
-    background-color: #f4f1ea;
-    line-height: 50px;
+    color: #00635d;
+    background-color: #f9f7f4;
     font-weight: bold;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-    padding: 0 15px;
     border: none;
-  }
-  .button:hover {
-    color: #ffffff;
-    background-color: #382110;
-    outline: 0;
+    padding: 0;
+    padding-bottom: 6px;
   }
 `;
 
@@ -43,7 +37,7 @@ function EditProfileFormModal({ user }) {
     <>
       <EditProfileFormModalWrapper>
         <button className="button" onClick={handleShowModal}>
-          Edit Profile
+          (Edit Profile)
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

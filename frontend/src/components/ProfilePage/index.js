@@ -68,9 +68,6 @@ const ProfilePageWrapper = styled.div`
     font-size: 20px;
   }
 
-  .edit-user {
-  }
-
   .detail-holder {
     display: flex;
     flex-direction: column;
