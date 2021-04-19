@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import BookTile from "../BookTile";
 import EditProfileFormModal from "./EditProfileModal";
+import { deleteUser } from "../../store/session";
 
 const ProfilePageWrapper = styled.div`
   width: 100vw;
@@ -153,6 +154,7 @@ const ProfilePageWrapper = styled.div`
 const ProfilePage = () => {
   const shelves = useSelector((state) => state.shelves);
   const { user } = useSelector((state) => state.session);
+  const dispatch = useDispatch();
 
   const generateBookTiles = () => {
     if (shelves.read.length === undefined) return null;
@@ -164,6 +166,14 @@ const ProfilePage = () => {
       if (i > 2) return null;
       return <BookTile key={book.id} book={book} profile={true}></BookTile>;
     });
+  };
+
+  const handleDelete = () => {
+    if (user.email === "demo@user.io")
+      window.alert(
+        "Please don't try to delete the Demo User's account. If you want to try this feature please create your own account."
+      );
+    else return dispatch(deleteUser(user.id));
   };
 
   return (
@@ -213,7 +223,9 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="delete-holder">
-              <button className="delete-button">Delete Profile</button>
+              <button onClick={handleDelete} className="delete-button">
+                Delete Profile
+              </button>
             </div>
           </div>
         </div>

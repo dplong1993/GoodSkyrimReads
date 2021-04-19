@@ -159,5 +159,14 @@ module.exports = (sequelize, DataTypes) => {
     );
     return await User.scope("currentUser").findByPk(id);
   };
+
+  User.deleteUser = async function (id) {
+    const user = await User.destroy({
+      where: {
+        id,
+      },
+    });
+    return user;
+  };
   return User;
 };

@@ -70,6 +70,14 @@ export const logout = () => async (dispatch) => {
   return response;
 };
 
+export const deleteUser = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${id}`, {
+    method: "DELETE",
+  });
+  dispatch(removeUser());
+  return response;
+};
+
 export const editUserThunk = (oldUser, newUser) => async (dispatch) => {
   let userToSend = {};
   for (let key in newUser) {

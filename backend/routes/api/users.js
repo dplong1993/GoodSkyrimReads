@@ -81,7 +81,7 @@ router.post(
   "/",
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, username, lastName, firstName } = req.body;
+    const { email, password, username, lastName, firstName } = req.body;
     const user = await User.signup({
       email,
       username,
@@ -112,6 +112,18 @@ router.patch(
       id,
     });
 
+    return res.json({
+      user,
+    });
+  })
+);
+
+// Edit profile
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await User.deleteUser(id);
     return res.json({
       user,
     });
