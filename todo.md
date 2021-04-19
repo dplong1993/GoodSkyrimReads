@@ -13,20 +13,20 @@
   [] Set up shelves pages to support scrolling
 [x] Get Heroku working
 [x] Work on the splash page
-[] Get the profile page set up
+[x] Get the profile page set up
   [x] Get all the user's info to show up on page
   [x] Get book tiles set up for activity portion
-  [] Set up form to edit user info
-  [] Set up profile page with the ability to delete account if user is not demo user
-[] Get the books page set up
+  [x] Set up form to edit user info
+  [x] Set up profile page with the ability to delete account if user is not demo user
+[x] Get the books page set up
   [x] Show all books in the library for the user to click on.
-  [] Style the message for when there are no more books in the library.
+  [x] Style the message for when there are no more books in the library.
 [x] Look for a tags and change them to Link or NavLinks
 [] Finish up book-detail page
   [] Add more detail to the book info page by adding other books from the same series as scrolling bar at bottom of book-detail page
   [x] Add the ability to add a book to one of the default shelves
   [x] Add the ability to remove a book from a default shelf
-[] Add more seed data for books
+[x] Add more seed data for books
 [] Set up a review section and set up a ratings section
   [] Set up stars to rate book on profile page
   [] Revisit Total user ratings and reviews on profile page once that feature is done.

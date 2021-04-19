@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const BooksPageWrapper = styled.div`
   background: #f9f7f4;
-  height: 100vh;
   width: 100vw;
   h1 {
     margin: 0;
