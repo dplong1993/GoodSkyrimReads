@@ -137,7 +137,6 @@ const BookTile = ({ book, profile }) => {
   const dispatch = useDispatch();
   const [shelfVerb, setShelfVerb] = useState("");
   const [shelfName, setShelfName] = useState("");
-  console.log(book);
 
   const generateShelfInfo = () => {
     if (book.Read) {
