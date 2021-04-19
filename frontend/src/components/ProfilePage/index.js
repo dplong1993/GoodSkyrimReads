@@ -189,7 +189,7 @@ const ProfilePage = () => {
                 {user.firstName} {user.lastName}
               </div>
               <div className="edit-user">
-                <EditProfileFormModal />
+                <EditProfileFormModal user={user} />
               </div>
             </div>
             <div className="detail-holder">

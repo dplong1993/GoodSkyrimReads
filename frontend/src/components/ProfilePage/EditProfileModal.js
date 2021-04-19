@@ -28,13 +28,21 @@ const EditProfileFormModalWrapper = styled.div`
   }
 `;
 
-function EditProfileFormModal() {
+function EditProfileFormModal({ user }) {
   const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    if (user.email === "demo@user.io")
+      window.alert(
+        "Please don't change the Demo User's info. If you want to try this feature please create your own account."
+      );
+    else setShowModal(true);
+  };
 
   return (
     <>
       <EditProfileFormModalWrapper>
-        <button className="button" onClick={() => setShowModal(true)}>
+        <button className="button" onClick={handleShowModal}>
           Edit Profile
         </button>
         {showModal && (
