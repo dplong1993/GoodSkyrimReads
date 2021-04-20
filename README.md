@@ -377,18 +377,16 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 * _DELETE api/shelves/toread/:id_
   * Uses a hyphenated id in the form of "1-1" to delete a record from the toRead shelf.
 
-
-
 ## Frontend Routes
 
 The components will be organized as such:
 
 * Root
-    * Provider
-        * App
-            - NavBar
-            - Main
-            - Footer
+  * Provider
+    * App
+          * NavBar
+          - Main
+          - Footer
 
 The following routes will render in our App between the NavBar and Footer.
 
