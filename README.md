@@ -1,6 +1,6 @@
 # GoodSkyrimReads
 
-This is a solo-project made using React and Redux in JavaScript for the frontend and Sequelize for the backend. It is a clone of the Goodreads website using books from the popular Elder Scrolls V Skyrim video game.
+This is a solo-project made using React and Redux in JavaScript for the frontend and Sequelize for the backend. It is based on the Goodreads website using books from the popular Elder Scrolls V Skyrim video game.
 
 ## MVP List
 
@@ -10,7 +10,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 
 * Users with accounts in the database are able to log-in to the site.
 * Non-users can access information about different books.
-* Users can add books to thier lists and access them via a My Books tab
+* Users can add books to their lists and access them via a My Books tab
 
 ### New user account creation (9/29/20 1 day)
 
@@ -41,7 +41,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 
 * A user can choose to add a book to their bookshelves.
 * The user can then navigate to their bookshelves to look at all the books they have saved.
-* The user can delete books from their bookshleves if they no longer want to have them saved.
+* The user can delete books from their bookshelves if they no longer want to have them saved.
 
 ### Book Browse Page (10/4/20, 1 day)
 
@@ -61,7 +61,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 ### Bonus: Reviews
 
 * A user can leave reviews on different books via 5 stars.
-* The stars will initialy be grey.
+* The stars will initially be grey.
 * Once the user leaves their review (from 1-5 stars) the corresponding stars will change to   yellow
 * Along with the stars a user will be able to leave a detailed review in the form of comments.
 
@@ -72,7 +72,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 
 ### Bonus: Search across multiple models
 
-* Anyone accessing the application will be able to use a search bar to search through the availiable books.
+* Anyone accessing the application will be able to use a search bar to search through the available books.
 
 ## Schema
 
@@ -384,7 +384,7 @@ This is a Skyrim themed clone of the popular site Goodreads. It will be built us
 The components will be organized as such:
 
 * Root
-  * Provider
+    * Provider
         * App
             - NavBar
             - Main
