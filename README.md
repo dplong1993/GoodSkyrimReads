@@ -1,10 +1,8 @@
 # GoodSkyrimReads
 
-This is a solo-project made using React and Redux in JavaScript for the frontend and Sequelize for the backend. It is based on the Goodreads website using books from the popular Elder Scrolls V Skyrim video game.
+This is a solo-project made using React and Redux in JavaScript for the frontend and Sequelize for the backend. It is based on the Goodreads website using books from the popular Elder Scrolls V Skyrim video game. Link to live site [goodSkyrimReads](https://goodskyrimreads.herokuapp.com/)
 
 ## MVP List
-
-This is a Skyrim themed clone of the popular site Goodreads. It will be built using React and Redux for the front-end and Express and Sequelize for the back-end.
 
 ### User log-in (9/28/20, 1 day)
 
